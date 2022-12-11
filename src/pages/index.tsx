@@ -19,14 +19,17 @@ export default function IndexPage() {
     </Head>
 
     <main>
-      <h1 className="text-3xl text-red-500">
-        Hello world
-        </h1>
-        <button
-          className='border-0 rounded p-2 bg-green-500 text-white hover:bg-green-600'
-          onClick={() => createUser("theo")}>
-          Add user
-        </button>
+        <div className='flex justify-center items-center w-screen h-screen bg-gray-800 divide-y'>
+          <div className='bg-blue-400 text-white w-72 h-72 rounded-full lg:w-96 lg:h-96 flex justify-center items-center'>
+            <div className='bg-blue-500 text-white w-60 h-60 rounded-full lg:w-80 lg:h-80 flex justify-center items-center'>
+              <div className='bg-blue-600 text-white w-48 h-48 rounded-full lg:w-64 lg:h-64 flex justify-center items-center'>
+                <div className='bg-blue-700 text-white w-36 h-36 rounded-full lg:w-48 lg:h-48 flex justify-center items-center'>
+                  <div className='bg-blue-800 text-white w-24 h-24 rounded-full lg:w-32 lg:h-32 flex justify-center items-center'></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
     </main>
     
   </div>

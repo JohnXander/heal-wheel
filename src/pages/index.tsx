@@ -18,8 +18,8 @@ export default function IndexPage() {
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-      <main>
-        <div className='flex justify-center items-center w-screen h-screen bg-gray-800 divide-y relative'>
+        <main className='flex justify-center items-center w-screen h-screen bg-gray-800'>
+
           <div className='bg-blue-400 text-white border-4 w-72 h-72 rounded-full lg:w-96 lg:h-96 flex justify-center items-center absolute'>
             <div className='w-full h-full border-r-2 flex flex-col justify-center items-center overflow-hidden'>
               <div className='w-full h-full border-b-2'></div>
@@ -49,10 +49,10 @@ export default function IndexPage() {
                   </div>
                 </div>
               </div>
-            </div>
-        </div>
-    </main>
-    
+          </div>
+          
+        </main>
+
   </div>
   );
 }

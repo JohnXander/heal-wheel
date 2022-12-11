@@ -18,17 +18,38 @@ export default function IndexPage() {
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <main>
-        <div className='flex justify-center items-center w-screen h-screen bg-gray-800 divide-y'>
-          <div className='bg-blue-400 text-white w-72 h-72 rounded-full lg:w-96 lg:h-96 flex justify-center items-center'>
-            <div className='bg-blue-500 text-white w-60 h-60 rounded-full lg:w-80 lg:h-80 flex justify-center items-center'>
-              <div className='bg-blue-600 text-white w-48 h-48 rounded-full lg:w-64 lg:h-64 flex justify-center items-center'>
-                <div className='bg-blue-700 text-white w-36 h-36 rounded-full lg:w-48 lg:h-48 flex justify-center items-center'>
-                  <div className='bg-blue-800 text-white w-24 h-24 rounded-full lg:w-32 lg:h-32 flex justify-center items-center'></div>
+      <main>
+        <div className='flex justify-center items-center w-screen h-screen bg-gray-800 divide-y relative'>
+          <div className='bg-blue-400 text-white border-4 w-72 h-72 rounded-full lg:w-96 lg:h-96 flex justify-center items-center absolute'>
+            <div className='w-full h-full border-r-2 flex flex-col justify-center items-center overflow-hidden'>
+              <div className='w-full h-full border-b-2'></div>
+              <div className='w-full h-full border-t-2'></div>
+            </div>
+            <div className='w-full h-full border-l-2 flex flex-col justify-center items-center overflow-hidden'>
+              <div className='w-full h-full border-b-2'></div>
+              <div className='w-full h-full border-t-2'></div>
+            </div>
+          </div>
+
+          <div className='text-white border-4 w-72 h-72 rounded-full lg:w-96 lg:h-96 flex justify-center items-center absolute rotate-45'>
+            <div className='w-full h-full border-r-2 flex flex-col justify-center items-center overflow-hidden'>
+              <div className='w-full h-full border-b-2'></div>
+              <div className='w-full h-full border-t-2'></div>
+            </div>
+            <div className='w-full h-full border-l-2 flex flex-col justify-center items-center overflow-hidden'>
+              <div className='w-full h-full border-b-2'></div>
+              <div className='w-full h-full border-t-2'></div>
+            </div>
+          </div>
+
+            <div className='text-white border-4 w-60 h-60 rounded-full lg:w-80 lg:h-80 flex justify-center items-center z-50'>
+              <div className='text-white border-4 w-48 h-48 rounded-full lg:w-64 lg:h-64 flex justify-center items-center z-50'>
+                <div className='text-white border-4 w-36 h-36 rounded-full lg:w-48 lg:h-48 flex justify-center items-center z-50'>
+                  <div className='text-white border-4 w-24 h-24 rounded-full lg:w-32 lg:h-32 flex justify-center items-center z-50'>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
         </div>
     </main>
     

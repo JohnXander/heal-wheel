@@ -2,10 +2,10 @@ import { trpc } from '../utils/trpc';
 import Head from 'next/head'
 
 export default function IndexPage() {
-  const hello = trpc.hello.useQuery({ text: 'Vercel' });
+  const userMutation = trpc.createUser.useMutation()
 
-  if (!hello.data) {
-    return <div>Loading...</div>;
+  const createUser = (name: string) => {
+    userMutation.mutate({ name })
   }
   
   return (
@@ -18,8 +18,13 @@ export default function IndexPage() {
 
     <main>
       <h1 className="text-3xl text-red-500">
-        {hello.data.greeting}
-      </h1>
+        Hello world
+        </h1>
+        <button
+          className='border-0 rounded p-2 bg-green-500 text-white hover:bg-green-600'
+          onClick={() => createUser("john")}>
+          Add user
+        </button>
     </main>
     
   </div>

@@ -22,7 +22,7 @@ export default function IndexPage() {
         </h1>
         <button
           className='border-0 rounded p-2 bg-green-500 text-white hover:bg-green-600'
-          onClick={() => createUser("john")}>
+          onClick={() => createUser("xander")}>
           Add user
         </button>
     </main>

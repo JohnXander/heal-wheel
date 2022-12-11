@@ -12,7 +12,7 @@ export default function Home() {
 
       <main>
         <h1 className="text-3xl text-red-500">
-          Hello world!
+          Hello Vercel!
         </h1>
         <Image src="/dog.jpg" alt="Vercel Logo" width={100} height={75} />
       </main>

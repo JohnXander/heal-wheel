@@ -8,7 +8,9 @@ export default function IndexPage() {
     userMutation.mutate({ name })
   }
 
-  // final deployment test
+  const helloDiv = (message: string) => {
+    console.log(message)
+  }
   
   return (
     <div>
@@ -18,40 +20,64 @@ export default function IndexPage() {
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-        <main className='flex justify-center items-center w-screen h-screen bg-gray-800'>
+      <main className='bg-gray-800 w-screen h-screen flex justify-center items-center relative'>
 
-          <div className='bg-blue-400 text-white border-4 w-72 h-72 rounded-full lg:w-96 lg:h-96 flex justify-center items-center absolute'>
-            <div className='w-full h-full border-r-2 flex flex-col justify-center items-center overflow-hidden'>
-              <div className='w-full h-full border-b-2'></div>
-              <div className='w-full h-full border-t-2'></div>
-            </div>
-            <div className='w-full h-full border-l-2 flex flex-col justify-center items-center overflow-hidden'>
-              <div className='w-full h-full border-b-2'></div>
-              <div className='w-full h-full border-t-2'></div>
-            </div>
-          </div>
+        {/* 1st layer */}
 
-          <div className='text-white border-4 w-72 h-72 rounded-full lg:w-96 lg:h-96 flex justify-center items-center absolute rotate-45'>
-            <div className='w-full h-full border-r-2 flex flex-col justify-center items-center overflow-hidden'>
-              <div className='w-full h-full border-b-2'></div>
-              <div className='w-full h-full border-t-2'></div>
-            </div>
-            <div className='w-full h-full border-l-2 flex flex-col justify-center items-center overflow-hidden'>
-              <div className='w-full h-full border-b-2'></div>
-              <div className='w-full h-full border-t-2'></div>
-            </div>
+        <div className='absolute w-80 h-80 lg:w-96 lg:h-96'>
+          <div className='bg-blue-100 w-full h-full rounded-full relative overflow-hidden'>
+            <div className='bg-blue-200 w-40 h-40 lg:w-48 lg:h-48 absolute'></div>
+            <div className='bg-blue-300 w-40 h-40 lg:w-48 lg:h-48 absolute right-0'></div>
+            <div className='bg-blue-400 w-40 h-40 lg:w-48 lg:h-48 absolute bottom-0'></div>
+            <div className='bg-blue-500 w-40 h-40 lg:w-48 lg:h-48 absolute bottom-0 right-0'></div>
           </div>
+        </div>
 
-            <div className='text-white border-4 w-60 h-60 rounded-full lg:w-80 lg:h-80 flex justify-center items-center z-50'>
-              <div className='text-white border-4 w-48 h-48 rounded-full lg:w-64 lg:h-64 flex justify-center items-center z-50'>
-                <div className='text-white border-4 w-36 h-36 rounded-full lg:w-48 lg:h-48 flex justify-center items-center z-50'>
-                  <div className='text-white border-4 w-24 h-24 rounded-full lg:w-32 lg:h-32 flex justify-center items-center z-50'>
-                  </div>
-                </div>
-              </div>
+        {/* 2nd layer */}
+
+        <div className='absolute w-64 h-64 lg:w-80 lg:h-80'>
+          <div className='bg-green-100 w-full h-full rounded-full relative overflow-hidden'>
+            <div className='bg-green-200 w-32 h-32 lg:w-40 lg:h-40 absolute'></div>
+            <div className='bg-green-300 w-32 h-32 lg:w-40 lg:h-40 absolute right-0'></div>
+            <div className='bg-green-400 w-32 h-32 lg:w-40 lg:h-40 absolute bottom-0'></div>
+            <div className='bg-green-500 w-32 h-32 lg:w-40 lg:h-40 absolute bottom-0 right-0'></div>
           </div>
-          
-        </main>
+        </div>
+
+         {/* 3rd layer */}
+
+         <div className='absolute w-48 h-48 lg:w-64 lg:h-64'>
+          <div className='bg-yellow-100 w-full h-full rounded-full relative overflow-hidden'>
+            <div className='bg-yellow-200 w-24 h-24 lg:w-32 lg:h-32 absolute'></div>
+            <div className='bg-yellow-300 w-24 h-24 lg:w-32 lg:h-32 absolute right-0'></div>
+            <div className='bg-yellow-400 w-24 h-24 lg:w-32 lg:h-32 absolute bottom-0'></div>
+            <div className='bg-yellow-500 w-24 h-24 lg:w-32 lg:h-32 absolute bottom-0 right-0'></div>
+          </div>
+        </div>
+
+        {/* 4th layer */}
+
+        <div className='absolute w-32 h-32 lg:w-48 lg:h-48'>
+          <div className='bg-orange-100 w-full h-full rounded-full relative overflow-hidden'>
+            <div className='bg-orange-200 w-16 h-16 lg:w-24 lg:h-24 absolute'></div>
+            <div className='bg-orange-300 w-16 h-16 lg:w-24 lg:h-24 absolute right-0'></div>
+            <div className='bg-orange-400 w-16 h-16 lg:w-24 lg:h-24 absolute bottom-0'></div>
+            <div className='bg-orange-500 w-16 h-16 lg:w-24 lg:h-24 absolute bottom-0 right-0'></div>
+          </div>
+        </div>
+
+        {/* 5th layer */}
+
+        <div className='absolute w-16 h-16 lg:w-32 lg:h-32'>
+          <div className='bg-red-100 w-full h-full rounded-full relative overflow-hidden'>
+            <div className='bg-red-200 w-8 h-8 lg:w-16 lg:h-16 absolute' onClick={() => helloDiv("red 1")}></div>
+            <div className='bg-red-300 w-8 h-8 lg:w-16 lg:h-16 absolute right-0'></div>
+            <div className='bg-red-400 w-8 h-8 lg:w-16 lg:h-16 absolute bottom-0'></div>
+            <div className='bg-red-500 w-8 h-8 lg:w-16 lg:h-16 absolute bottom-0 right-0'></div>
+          </div>
+        </div>
+
+      </main>
 
   </div>
   );

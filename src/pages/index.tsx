@@ -1,22 +1,26 @@
-import { trpc } from '../utils/trpc';
+// import { trpc } from '../utils/trpc';
 import Head from 'next/head'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
+import FirstLayer from '../components/layers/FirstLayer';
+import SecondLayer from '../components/layers/SecondLayer';
+import ThirdLayer from '../components/layers/ThirdLayer';
+import FourthLayer from '../components/layers/FourthLayer';
+import FifthLayer from '../components/layers/FifthLayer';
+import CentrePoint from '../components/layers/CentrePoint';
 
 export default function IndexPage() {
-  const userMutation = trpc.createUser.useMutation()
+  // const userMutation = trpc.createUser.useMutation()
 
-  const createUser = (name: string) => {
-    userMutation.mutate({ name })
-  }
+  // const createUser = (name: string) => {
+  //   userMutation.mutate({ name })
+  // }
 
   const [mind, setMind] = useState(0)
   const [body, setBody] = useState(0)
   const [social, setSocial] = useState(0)
   const [work, setWork] = useState(0)
-
-  console.log(mind, body, social, work)
 
   const layerContainer = 'bg-blue-100 w-full h-full rounded-full relative overflow-hidden'
   
@@ -112,131 +116,49 @@ export default function IndexPage() {
             <h1 className='select-none'>Work</h1>
           </div>
 
-          {/* 1st layer */}
+          <FirstLayer
+            layerContainer={layerContainer}
+            mind={mind}
+            body={body}
+            social={social}
+            work={work}
+          />
 
-          <div className='absolute w-80 h-80 lg:w-96 lg:h-96'>
-            <div className={layerContainer}>
-              <div
-                className='w-40 h-40 lg:w-48 lg:h-48 absolute'
-                style={mind > 4 ? { backgroundColor: "#A4CAFE" } : { backgroundColor: "#EBF5FF" }}>
-              </div>
-              <div
-                className='w-40 h-40 lg:w-48 lg:h-48 absolute right-0'
-                style={body > 4 ? { backgroundColor: "#84E1BC" } : { backgroundColor: "#F3FAF7" }}>
-              </div>
-              <div
-                className='w-40 h-40 lg:w-48 lg:h-48 absolute bottom-0'
-                style={social > 4 ? { backgroundColor: "#FACA15" } : { backgroundColor: "#FDFDEA" }}>
-              </div>
-              <div
-                className='w-40 h-40 lg:w-48 lg:h-48 absolute bottom-0 right-0'
-                style={work > 4 ? { backgroundColor: "#F8B4B4" } : { backgroundColor: "#FDF2F2" }}>
-              </div>
-            </div>
-          </div>
+          <SecondLayer
+            layerContainer={layerContainer}
+            mind={mind}
+            body={body}
+            social={social}
+            work={work}
+          />
 
-          {/* 2nd layer */}
+          <ThirdLayer
+            layerContainer={layerContainer}
+            mind={mind}
+            body={body}
+            social={social}
+            work={work}
+          />
 
-          <div className='absolute w-64 h-64 lg:w-80 lg:h-80'>
-            <div className={layerContainer}>
-              <div
-                className='w-32 h-32 lg:w-40 lg:h-40 absolute'
-                style={mind > 3 ? { backgroundColor: "#76A9FA" } : { backgroundColor: "#E1EFFE" }}>
-              </div>
-              <div
-                className='w-32 h-32 lg:w-40 lg:h-40 absolute right-0'
-                style={body > 3 ? { backgroundColor: "#31C48D" } : { backgroundColor: "#DEF7EC" }}>
-              </div>
-              <div
-                className='w-32 h-32 lg:w-40 lg:h-40 absolute bottom-0'
-                style={social > 3 ? { backgroundColor: "#E3A008" } : { backgroundColor: "#FDF6B2" }}>
-              </div>
-              <div
-                className='w-32 h-32 lg:w-40 lg:h-40 absolute bottom-0 right-0'
-                style={work > 3 ? { backgroundColor: "#F98080" } : { backgroundColor: "#FDE8E8" }}>
-              </div>
-            </div>
-          </div>
+          <FourthLayer
+            layerContainer={layerContainer}
+            mind={mind}
+            body={body}
+            social={social}
+            work={work}
+          />
 
-          {/* 3rd layer */}
+          <FifthLayer
+            layerContainer={layerContainer}
+            mind={mind}
+            body={body}
+            social={social}
+            work={work}
+          />
 
-          <div className='absolute w-48 h-48 lg:w-64 lg:h-64'>
-            <div className={layerContainer}>
-              <div
-                className='w-24 h-24 lg:w-32 lg:h-32 absolute'
-                style={mind > 2 ? { backgroundColor: "#A4CAFE" } : { backgroundColor: "#EBF5FF" }}>
-              </div>
-              <div
-                className='w-24 h-24 lg:w-32 lg:h-32 absolute right-0'
-                style={body > 2 ? { backgroundColor: "#84E1BC" } : { backgroundColor: "#F3FAF7" }}>
-              </div>
-              <div
-                className='w-24 h-24 lg:w-32 lg:h-32 absolute bottom-0'
-                style={social > 2 ? { backgroundColor: "#FACA15" } : { backgroundColor: "#FDFDEA" }}>
-              </div>
-              <div
-                className='w-24 h-24 lg:w-32 lg:h-32 absolute bottom-0 right-0'
-                style={work > 2 ? { backgroundColor: "#F8B4B4" } : { backgroundColor: "#FDF2F2" }}>
-              </div>
-            </div>
-          </div>
-
-          {/* 4th layer */}
-
-          <div className='absolute w-32 h-32 lg:w-48 lg:h-48'>
-            <div className={layerContainer}>
-              <div
-                className='w-16 h-16 lg:w-24 lg:h-24 absolute'
-                style={mind > 1 ? { backgroundColor: "#76A9FA" } : { backgroundColor: "#E1EFFE" }}>
-              </div>
-              <div
-                className='w-16 h-16 lg:w-24 lg:h-24 absolute right-0'
-                style={body > 1 ? { backgroundColor: "#31C48D" } : { backgroundColor: "#DEF7EC" }}>
-              </div>
-              <div
-                className='w-16 h-16 lg:w-24 lg:h-24 absolute bottom-0'
-                style={social > 1 ? { backgroundColor: "#E3A008" } : { backgroundColor: "#FDF6B2" }}>
-              </div>
-              <div
-                className='w-16 h-16 lg:w-24 lg:h-24 absolute bottom-0 right-0'
-                style={work > 1 ? { backgroundColor: "#F98080" } : { backgroundColor: "#FDE8E8" }}>
-              </div>
-            </div>
-          </div>
-
-          {/* 5th layer */}
-
-          <div className='absolute w-16 h-16 lg:w-32 lg:h-32'>
-            <div className={layerContainer}>
-              <div
-                className='w-8 h-8 lg:w-16 lg:h-16 absolute'
-                style={mind > 0 ? { backgroundColor: "#A4CAFE" } : { backgroundColor: "#EBF5FF" }}>
-              </div>
-              <div
-                className='w-8 h-8 lg:w-16 lg:h-16 absolute right-0'
-                style={body > 0 ? { backgroundColor: "#84E1BC" } : { backgroundColor: "#F3FAF7" }}>
-              </div>
-              <div
-                className='w-8 h-8 lg:w-16 lg:h-16 absolute bottom-0'
-                style={social > 0 ? { backgroundColor: "#FACA15" } : { backgroundColor: "#FDFDEA" }}>
-              </div>
-              <div
-                className='w-8 h-8 lg:w-16 lg:h-16 absolute bottom-0 right-0'
-                style={work > 0 ? { backgroundColor: "#F8B4B4" } : { backgroundColor: "#FDF2F2" }}>
-              </div>
-            </div>
-          </div>
-
-          {/* Centre point */}
-
-          <div className='absolute lg:w-16 lg:h-16'>
-            <div className={layerContainer}>
-              <div className='bg-gray-400 lg:w-8 lg:h-8 absolute'></div>
-              <div className='bg-gray-400 lg:w-8 lg:h-8 absolute right-0'></div>
-              <div className='bg-gray-400 lg:w-8 lg:h-8 absolute bottom-0'></div>
-              <div className='bg-gray-400 lg:w-8 lg:h-8 absolute bottom-0 right-0'></div>
-            </div>
-          </div>
+          <CentrePoint
+            layerContainer={layerContainer}
+          />
             
         </div>
 

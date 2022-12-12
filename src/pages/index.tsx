@@ -33,7 +33,7 @@ export default function IndexPage() {
         <div className='w-80 h-80 lg:w-96 lg:h-96 flex justify-center items-center relative'>
 
           <div className='absolute top-0 left-0 text-white z-10 p-2'>
-            <h1>Mind</h1>
+            <h1 className='select-none'>Mind</h1>
             <div className='flex gap-x-2'>
               <FontAwesomeIcon
                 className='cursor-pointer text-green-400'
@@ -53,7 +53,7 @@ export default function IndexPage() {
           </div>
 
           <div className='absolute top-0 right-0 text-white z-10 p-2'>
-            <h1>Body</h1>
+            <h1 className='select-none'>Body</h1>
             <div className='flex gap-x-2'>
               <FontAwesomeIcon
                 className='cursor-pointer text-green-400'
@@ -89,7 +89,7 @@ export default function IndexPage() {
                 }}
               />
             </div>
-            <h1>Social</h1>
+            <h1 className='select-none'>Social</h1>
           </div>
 
           <div className='absolute bottom-0 right-0 text-white z-10 p-2'>
@@ -109,7 +109,7 @@ export default function IndexPage() {
                 }}
               />
             </div>
-            <h1>Work</h1>
+            <h1 className='select-none'>Work</h1>
           </div>
 
           {/* 1st layer */}
@@ -124,8 +124,14 @@ export default function IndexPage() {
                 className='w-40 h-40 lg:w-48 lg:h-48 absolute right-0'
                 style={body > 4 ? { backgroundColor: "#84E1BC" } : { backgroundColor: "#F3FAF7" }}>
               </div>
-              <div className='bg-yellow-50 w-40 h-40 lg:w-48 lg:h-48 absolute bottom-0'></div>
-              <div className='bg-red-50 w-40 h-40 lg:w-48 lg:h-48 absolute bottom-0 right-0'></div>
+              <div
+                className='w-40 h-40 lg:w-48 lg:h-48 absolute bottom-0'
+                style={social > 4 ? { backgroundColor: "#FACA15" } : { backgroundColor: "#FDFDEA" }}>
+              </div>
+              <div
+                className='w-40 h-40 lg:w-48 lg:h-48 absolute bottom-0 right-0'
+                style={work > 4 ? { backgroundColor: "#F8B4B4" } : { backgroundColor: "#FDF2F2" }}>
+              </div>
             </div>
           </div>
 
@@ -141,8 +147,14 @@ export default function IndexPage() {
                 className='w-32 h-32 lg:w-40 lg:h-40 absolute right-0'
                 style={body > 3 ? { backgroundColor: "#31C48D" } : { backgroundColor: "#DEF7EC" }}>
               </div>
-              <div className='bg-yellow-100 w-32 h-32 lg:w-40 lg:h-40 absolute bottom-0'></div>
-              <div className='bg-red-100 w-32 h-32 lg:w-40 lg:h-40 absolute bottom-0 right-0'></div>
+              <div
+                className='w-32 h-32 lg:w-40 lg:h-40 absolute bottom-0'
+                style={social > 3 ? { backgroundColor: "#E3A008" } : { backgroundColor: "#FDF6B2" }}>
+              </div>
+              <div
+                className='w-32 h-32 lg:w-40 lg:h-40 absolute bottom-0 right-0'
+                style={work > 3 ? { backgroundColor: "#F98080" } : { backgroundColor: "#FDE8E8" }}>
+              </div>
             </div>
           </div>
 
@@ -158,8 +170,14 @@ export default function IndexPage() {
                 className='w-24 h-24 lg:w-32 lg:h-32 absolute right-0'
                 style={body > 2 ? { backgroundColor: "#84E1BC" } : { backgroundColor: "#F3FAF7" }}>
               </div>
-              <div className='bg-yellow-50 w-24 h-24 lg:w-32 lg:h-32 absolute bottom-0'></div>
-              <div className='bg-red-50 w-24 h-24 lg:w-32 lg:h-32 absolute bottom-0 right-0'></div>
+              <div
+                className='w-24 h-24 lg:w-32 lg:h-32 absolute bottom-0'
+                style={social > 2 ? { backgroundColor: "#FACA15" } : { backgroundColor: "#FDFDEA" }}>
+              </div>
+              <div
+                className='w-24 h-24 lg:w-32 lg:h-32 absolute bottom-0 right-0'
+                style={work > 2 ? { backgroundColor: "#F8B4B4" } : { backgroundColor: "#FDF2F2" }}>
+              </div>
             </div>
           </div>
 
@@ -175,8 +193,14 @@ export default function IndexPage() {
                 className='w-16 h-16 lg:w-24 lg:h-24 absolute right-0'
                 style={body > 1 ? { backgroundColor: "#31C48D" } : { backgroundColor: "#DEF7EC" }}>
               </div>
-              <div className='bg-yellow-100 w-16 h-16 lg:w-24 lg:h-24 absolute bottom-0'></div>
-              <div className='bg-red-100 w-16 h-16 lg:w-24 lg:h-24 absolute bottom-0 right-0'></div>
+              <div
+                className='w-16 h-16 lg:w-24 lg:h-24 absolute bottom-0'
+                style={social > 1 ? { backgroundColor: "#E3A008" } : { backgroundColor: "#FDF6B2" }}>
+              </div>
+              <div
+                className='w-16 h-16 lg:w-24 lg:h-24 absolute bottom-0 right-0'
+                style={work > 1 ? { backgroundColor: "#F98080" } : { backgroundColor: "#FDE8E8" }}>
+              </div>
             </div>
           </div>
 
@@ -192,8 +216,14 @@ export default function IndexPage() {
                 className='w-8 h-8 lg:w-16 lg:h-16 absolute right-0'
                 style={body > 0 ? { backgroundColor: "#84E1BC" } : { backgroundColor: "#F3FAF7" }}>
               </div>
-              <div className='bg-yellow-50 w-8 h-8 lg:w-16 lg:h-16 absolute bottom-0'></div>
-              <div className='bg-red-50 w-8 h-8 lg:w-16 lg:h-16 absolute bottom-0 right-0'></div>
+              <div
+                className='w-8 h-8 lg:w-16 lg:h-16 absolute bottom-0'
+                style={social > 0 ? { backgroundColor: "#FACA15" } : { backgroundColor: "#FDFDEA" }}>
+              </div>
+              <div
+                className='w-8 h-8 lg:w-16 lg:h-16 absolute bottom-0 right-0'
+                style={work > 0 ? { backgroundColor: "#F8B4B4" } : { backgroundColor: "#FDF2F2" }}>
+              </div>
             </div>
           </div>
 

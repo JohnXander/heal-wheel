@@ -24,38 +24,38 @@ export default function IndexPage() {
 
       <main className='bg-gray-800 w-screen h-screen flex justify-center items-center'>
 
-        <div className='bg-gray-600 w-80 h-80 lg:w-96 lg:h-96 flex justify-center items-center relative'>
+        <div className='w-80 h-80 lg:w-96 lg:h-96 flex justify-center items-center relative'>
 
-          <div className='absolute top-0 left-0 text-white z-10'>
-            <h1>Mind</h1>
+          <div className='absolute top-0 left-0 text-white z-10 p-2'>
+            <h1 className='text-1xl'>Mind</h1>
             <div className='flex gap-x-2'>
-              <FontAwesomeIcon className='cursor-pointer' icon={faPlus} />
-              <FontAwesomeIcon className='cursor-pointer' icon={faMinus} />
+              <FontAwesomeIcon className='cursor-pointer text-green-400' icon={faPlus} />
+              <FontAwesomeIcon className='cursor-pointer text-red-400' icon={faMinus} />
             </div>
           </div>
 
-          <div className='absolute top-0 right-0 text-white z-10'>
-            <h1>Body</h1>
-            <div>
-              <button className='text-white'>+</button>
-              <button className='text-white'>-</button>
+          <div className='absolute top-0 right-0 text-white z-10 p-2'>
+            <h1 className='text-1xl'>Body</h1>
+            <div className='flex gap-x-2'>
+              <FontAwesomeIcon className='cursor-pointer text-green-400' icon={faPlus} />
+              <FontAwesomeIcon className='cursor-pointer text-red-400' icon={faMinus} />
             </div>
           </div>
 
-          <div className='absolute bottom-0 left-0 text-white z-10'>
-            <h1>Social</h1>
-            <div>
-              <button className='text-white'>+</button>
-              <button className='text-white'>-</button>
+          <div className='absolute bottom-0 left-0 text-white z-10 p-2'>
+            <div className='flex gap-x-2'>
+              <FontAwesomeIcon className='cursor-pointer text-green-400' icon={faPlus} />
+              <FontAwesomeIcon className='cursor-pointer text-red-400' icon={faMinus} />
             </div>
+            <h1 className='text-1xl'>Social</h1>
           </div>
 
-          <div className='absolute bottom-0 right-0 text-white z-10'>
-            <h1>Work</h1>
-            <div>
-              <button className='text-white'></button>
-              <button className='text-white'>-</button>
+          <div className='absolute bottom-0 right-0 text-white z-10 p-2'>
+            <div className='flex gap-x-2'>
+              <FontAwesomeIcon className='cursor-pointer text-green-400' icon={faPlus} />
+              <FontAwesomeIcon className='cursor-pointer text-red-400' icon={faMinus} />
             </div>
+            <h1 className='text-1xl'>Work</h1>
           </div>
 
           {/* 1st layer */}

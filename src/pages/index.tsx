@@ -116,8 +116,14 @@ export default function IndexPage() {
 
           <div className='absolute w-80 h-80 lg:w-96 lg:h-96'>
             <div className={layerContainer}>
-              <div className='bg-blue-50 w-40 h-40 lg:w-48 lg:h-48 absolute'></div>
-              <div className='bg-green-50 w-40 h-40 lg:w-48 lg:h-48 absolute right-0'></div>
+              <div
+                className='w-40 h-40 lg:w-48 lg:h-48 absolute'
+                style={mind > 4 ? { backgroundColor: "#A4CAFE" } : { backgroundColor: "#EBF5FF" }}>
+              </div>
+              <div
+                className='w-40 h-40 lg:w-48 lg:h-48 absolute right-0'
+                style={body > 4 ? { backgroundColor: "#84E1BC" } : { backgroundColor: "#F3FAF7" }}>
+              </div>
               <div className='bg-yellow-50 w-40 h-40 lg:w-48 lg:h-48 absolute bottom-0'></div>
               <div className='bg-red-50 w-40 h-40 lg:w-48 lg:h-48 absolute bottom-0 right-0'></div>
             </div>
@@ -127,8 +133,14 @@ export default function IndexPage() {
 
           <div className='absolute w-64 h-64 lg:w-80 lg:h-80'>
             <div className={layerContainer}>
-              <div className='bg-blue-100 w-32 h-32 lg:w-40 lg:h-40 absolute'></div>
-              <div className='bg-green-100 w-32 h-32 lg:w-40 lg:h-40 absolute right-0'></div>
+              <div
+                className='w-32 h-32 lg:w-40 lg:h-40 absolute'
+                style={mind > 3 ? { backgroundColor: "#76A9FA" } : { backgroundColor: "#E1EFFE" }}>
+              </div>
+              <div
+                className='w-32 h-32 lg:w-40 lg:h-40 absolute right-0'
+                style={body > 3 ? { backgroundColor: "#31C48D" } : { backgroundColor: "#DEF7EC" }}>
+              </div>
               <div className='bg-yellow-100 w-32 h-32 lg:w-40 lg:h-40 absolute bottom-0'></div>
               <div className='bg-red-100 w-32 h-32 lg:w-40 lg:h-40 absolute bottom-0 right-0'></div>
             </div>
@@ -138,8 +150,14 @@ export default function IndexPage() {
 
           <div className='absolute w-48 h-48 lg:w-64 lg:h-64'>
             <div className={layerContainer}>
-              <div className='bg-blue-50 w-24 h-24 lg:w-32 lg:h-32 absolute'></div>
-              <div className='bg-green-50 w-24 h-24 lg:w-32 lg:h-32 absolute right-0'></div>
+              <div
+                className='w-24 h-24 lg:w-32 lg:h-32 absolute'
+                style={mind > 2 ? { backgroundColor: "#A4CAFE" } : { backgroundColor: "#EBF5FF" }}>
+              </div>
+              <div
+                className='w-24 h-24 lg:w-32 lg:h-32 absolute right-0'
+                style={body > 2 ? { backgroundColor: "#84E1BC" } : { backgroundColor: "#F3FAF7" }}>
+              </div>
               <div className='bg-yellow-50 w-24 h-24 lg:w-32 lg:h-32 absolute bottom-0'></div>
               <div className='bg-red-50 w-24 h-24 lg:w-32 lg:h-32 absolute bottom-0 right-0'></div>
             </div>
@@ -149,8 +167,14 @@ export default function IndexPage() {
 
           <div className='absolute w-32 h-32 lg:w-48 lg:h-48'>
             <div className={layerContainer}>
-              <div className='bg-blue-100 w-16 h-16 lg:w-24 lg:h-24 absolute'></div>
-              <div className='bg-green-100 w-16 h-16 lg:w-24 lg:h-24 absolute right-0'></div>
+              <div
+                className='w-16 h-16 lg:w-24 lg:h-24 absolute'
+                style={mind > 1 ? { backgroundColor: "#76A9FA" } : { backgroundColor: "#E1EFFE" }}>
+              </div>
+              <div
+                className='w-16 h-16 lg:w-24 lg:h-24 absolute right-0'
+                style={body > 1 ? { backgroundColor: "#31C48D" } : { backgroundColor: "#DEF7EC" }}>
+              </div>
               <div className='bg-yellow-100 w-16 h-16 lg:w-24 lg:h-24 absolute bottom-0'></div>
               <div className='bg-red-100 w-16 h-16 lg:w-24 lg:h-24 absolute bottom-0 right-0'></div>
             </div>
@@ -160,8 +184,14 @@ export default function IndexPage() {
 
           <div className='absolute w-16 h-16 lg:w-32 lg:h-32'>
             <div className={layerContainer}>
-              <div className='bg-blue-50 w-8 h-8 lg:w-16 lg:h-16 absolute'></div>
-              <div className='bg-green-50 w-8 h-8 lg:w-16 lg:h-16 absolute right-0'></div>
+              <div
+                className='w-8 h-8 lg:w-16 lg:h-16 absolute'
+                style={mind > 0 ? { backgroundColor: "#A4CAFE" } : { backgroundColor: "#EBF5FF" }}>
+              </div>
+              <div
+                className='w-8 h-8 lg:w-16 lg:h-16 absolute right-0'
+                style={body > 0 ? { backgroundColor: "#84E1BC" } : { backgroundColor: "#F3FAF7" }}>
+              </div>
               <div className='bg-yellow-50 w-8 h-8 lg:w-16 lg:h-16 absolute bottom-0'></div>
               <div className='bg-red-50 w-8 h-8 lg:w-16 lg:h-16 absolute bottom-0 right-0'></div>
             </div>

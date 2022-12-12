@@ -1,5 +1,7 @@
 import { trpc } from '../utils/trpc';
 import Head from 'next/head'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 
 export default function IndexPage() {
   const userMutation = trpc.createUser.useMutation()
@@ -20,61 +22,97 @@ export default function IndexPage() {
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-      <main className='bg-gray-800 w-screen h-screen flex justify-center items-center relative'>
+      <main className='bg-gray-800 w-screen h-screen flex justify-center items-center'>
 
-        {/* 1st layer */}
+        <div className='bg-gray-600 w-80 h-80 lg:w-96 lg:h-96 flex justify-center items-center relative'>
 
-        <div className='absolute w-80 h-80 lg:w-96 lg:h-96'>
-          <div className='bg-blue-100 w-full h-full rounded-full relative overflow-hidden'>
-            <div className='bg-blue-200 w-40 h-40 lg:w-48 lg:h-48 absolute'></div>
-            <div className='bg-blue-300 w-40 h-40 lg:w-48 lg:h-48 absolute right-0'></div>
-            <div className='bg-blue-400 w-40 h-40 lg:w-48 lg:h-48 absolute bottom-0'></div>
-            <div className='bg-blue-500 w-40 h-40 lg:w-48 lg:h-48 absolute bottom-0 right-0'></div>
+          <div className='absolute top-0 left-0 text-white z-10'>
+            <h1>Mind</h1>
+            <div className='flex gap-x-2'>
+              <FontAwesomeIcon className='cursor-pointer' icon={faPlus} />
+              <FontAwesomeIcon className='cursor-pointer' icon={faMinus} />
+            </div>
           </div>
-        </div>
 
-        {/* 2nd layer */}
-
-        <div className='absolute w-64 h-64 lg:w-80 lg:h-80'>
-          <div className='bg-green-100 w-full h-full rounded-full relative overflow-hidden'>
-            <div className='bg-green-200 w-32 h-32 lg:w-40 lg:h-40 absolute'></div>
-            <div className='bg-green-300 w-32 h-32 lg:w-40 lg:h-40 absolute right-0'></div>
-            <div className='bg-green-400 w-32 h-32 lg:w-40 lg:h-40 absolute bottom-0'></div>
-            <div className='bg-green-500 w-32 h-32 lg:w-40 lg:h-40 absolute bottom-0 right-0'></div>
+          <div className='absolute top-0 right-0 text-white z-10'>
+            <h1>Body</h1>
+            <div>
+              <button className='text-white'>+</button>
+              <button className='text-white'>-</button>
+            </div>
           </div>
-        </div>
 
-         {/* 3rd layer */}
-
-         <div className='absolute w-48 h-48 lg:w-64 lg:h-64'>
-          <div className='bg-yellow-100 w-full h-full rounded-full relative overflow-hidden'>
-            <div className='bg-yellow-200 w-24 h-24 lg:w-32 lg:h-32 absolute'></div>
-            <div className='bg-yellow-300 w-24 h-24 lg:w-32 lg:h-32 absolute right-0'></div>
-            <div className='bg-yellow-400 w-24 h-24 lg:w-32 lg:h-32 absolute bottom-0'></div>
-            <div className='bg-yellow-500 w-24 h-24 lg:w-32 lg:h-32 absolute bottom-0 right-0'></div>
+          <div className='absolute bottom-0 left-0 text-white z-10'>
+            <h1>Social</h1>
+            <div>
+              <button className='text-white'>+</button>
+              <button className='text-white'>-</button>
+            </div>
           </div>
-        </div>
 
-        {/* 4th layer */}
-
-        <div className='absolute w-32 h-32 lg:w-48 lg:h-48'>
-          <div className='bg-orange-100 w-full h-full rounded-full relative overflow-hidden'>
-            <div className='bg-orange-200 w-16 h-16 lg:w-24 lg:h-24 absolute'></div>
-            <div className='bg-orange-300 w-16 h-16 lg:w-24 lg:h-24 absolute right-0'></div>
-            <div className='bg-orange-400 w-16 h-16 lg:w-24 lg:h-24 absolute bottom-0'></div>
-            <div className='bg-orange-500 w-16 h-16 lg:w-24 lg:h-24 absolute bottom-0 right-0'></div>
+          <div className='absolute bottom-0 right-0 text-white z-10'>
+            <h1>Work</h1>
+            <div>
+              <button className='text-white'></button>
+              <button className='text-white'>-</button>
+            </div>
           </div>
-        </div>
 
-        {/* 5th layer */}
+          {/* 1st layer */}
 
-        <div className='absolute w-16 h-16 lg:w-32 lg:h-32'>
-          <div className='bg-red-100 w-full h-full rounded-full relative overflow-hidden'>
-            <div className='bg-red-200 w-8 h-8 lg:w-16 lg:h-16 absolute' onClick={() => helloDiv("red 1")}></div>
-            <div className='bg-red-300 w-8 h-8 lg:w-16 lg:h-16 absolute right-0'></div>
-            <div className='bg-red-400 w-8 h-8 lg:w-16 lg:h-16 absolute bottom-0'></div>
-            <div className='bg-red-500 w-8 h-8 lg:w-16 lg:h-16 absolute bottom-0 right-0'></div>
+          <div className='absolute w-80 h-80 lg:w-96 lg:h-96'>
+            <div className='bg-blue-100 w-full h-full rounded-full relative overflow-hidden'>
+              <div className='bg-blue-200 w-40 h-40 lg:w-48 lg:h-48 absolute'></div>
+              <div className='bg-blue-300 w-40 h-40 lg:w-48 lg:h-48 absolute right-0'></div>
+              <div className='bg-blue-400 w-40 h-40 lg:w-48 lg:h-48 absolute bottom-0'></div>
+              <div className='bg-blue-500 w-40 h-40 lg:w-48 lg:h-48 absolute bottom-0 right-0'></div>
+            </div>
           </div>
+
+          {/* 2nd layer */}
+
+          <div className='absolute w-64 h-64 lg:w-80 lg:h-80'>
+            <div className='bg-green-100 w-full h-full rounded-full relative overflow-hidden'>
+              <div className='bg-green-200 w-32 h-32 lg:w-40 lg:h-40 absolute'></div>
+              <div className='bg-green-300 w-32 h-32 lg:w-40 lg:h-40 absolute right-0'></div>
+              <div className='bg-green-400 w-32 h-32 lg:w-40 lg:h-40 absolute bottom-0'></div>
+              <div className='bg-green-500 w-32 h-32 lg:w-40 lg:h-40 absolute bottom-0 right-0'></div>
+            </div>
+          </div>
+
+          {/* 3rd layer */}
+
+          <div className='absolute w-48 h-48 lg:w-64 lg:h-64'>
+            <div className='bg-yellow-100 w-full h-full rounded-full relative overflow-hidden'>
+              <div className='bg-yellow-200 w-24 h-24 lg:w-32 lg:h-32 absolute'></div>
+              <div className='bg-yellow-300 w-24 h-24 lg:w-32 lg:h-32 absolute right-0'></div>
+              <div className='bg-yellow-400 w-24 h-24 lg:w-32 lg:h-32 absolute bottom-0'></div>
+              <div className='bg-yellow-500 w-24 h-24 lg:w-32 lg:h-32 absolute bottom-0 right-0'></div>
+            </div>
+          </div>
+
+          {/* 4th layer */}
+
+          <div className='absolute w-32 h-32 lg:w-48 lg:h-48'>
+            <div className='bg-orange-100 w-full h-full rounded-full relative overflow-hidden'>
+              <div className='bg-orange-200 w-16 h-16 lg:w-24 lg:h-24 absolute'></div>
+              <div className='bg-orange-300 w-16 h-16 lg:w-24 lg:h-24 absolute right-0'></div>
+              <div className='bg-orange-400 w-16 h-16 lg:w-24 lg:h-24 absolute bottom-0'></div>
+              <div className='bg-orange-500 w-16 h-16 lg:w-24 lg:h-24 absolute bottom-0 right-0'></div>
+            </div>
+          </div>
+
+          {/* 5th layer */}
+
+          <div className='absolute w-16 h-16 lg:w-32 lg:h-32'>
+            <div className='bg-red-100 w-full h-full rounded-full relative overflow-hidden'>
+              <div className='bg-red-200 w-8 h-8 lg:w-16 lg:h-16 absolute' onClick={() => helloDiv("red 1")}></div>
+              <div className='bg-red-300 w-8 h-8 lg:w-16 lg:h-16 absolute right-0'></div>
+              <div className='bg-red-400 w-8 h-8 lg:w-16 lg:h-16 absolute bottom-0'></div>
+              <div className='bg-red-500 w-8 h-8 lg:w-16 lg:h-16 absolute bottom-0 right-0'></div>
+            </div>
+          </div>
+            
         </div>
 
       </main>

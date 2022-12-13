@@ -27,10 +27,10 @@ interface WheelProps {
 }
 
 export const Wheel: FC<WheelProps> = ({ user, setUser }) => {
-  const [mind, setMind] = useState(user.mind)
-  const [body, setBody] = useState(user.body)
-  const [social, setSocial] = useState(user.social)
-  const [work, setWork] = useState(user.work)
+  const [mind, setMind] = useState(user?.mind)
+  const [body, setBody] = useState(user?.body)
+  const [social, setSocial] = useState(user?.social)
+  const [work, setWork] = useState(user?.work)
   
   const layerContainer = 'bg-blue-100 w-full h-full rounded-full relative overflow-hidden'
 

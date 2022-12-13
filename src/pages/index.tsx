@@ -1,6 +1,6 @@
 // import { trpc } from '../utils/trpc';
 import Head from 'next/head'
-import Wheel from '../components/wheel';
+import Wheel from '../components/Wheel';
 
 export default function IndexPage() {
   // const userMutation = trpc.createUser.useMutation()

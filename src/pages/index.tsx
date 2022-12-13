@@ -9,6 +9,10 @@ import ThirdLayer from '../components/layers/ThirdLayer';
 import FourthLayer from '../components/layers/FourthLayer';
 import FifthLayer from '../components/layers/FifthLayer';
 import CentrePoint from '../components/layers/CentrePoint';
+import { MindControl } from '../components/controls/MindControl';
+import { BodyControl } from '../components/controls/BodyControl';
+import { SocialControl } from '../components/controls/SocialControl';
+import { WorkControl } from '../components/controls/WorkControl';
 
 export default function IndexPage() {
   // const userMutation = trpc.createUser.useMutation()
@@ -36,85 +40,10 @@ export default function IndexPage() {
 
         <div className='w-80 h-80 lg:w-96 lg:h-96 flex justify-center items-center relative'>
 
-          <div className='absolute top-0 left-0 text-white z-10 p-2'>
-            <h1 className='select-none'>Mind</h1>
-            <div className='flex gap-x-2'>
-              <FontAwesomeIcon
-                className='cursor-pointer text-green-400'
-                icon={faPlus}
-                onClick={() => {
-                  if (mind < 5) setMind(prev => prev + 1)
-                }}
-              />
-              <FontAwesomeIcon
-                className='cursor-pointer text-red-400'
-                icon={faMinus}
-                onClick={() => {
-                  if (mind > 0) setMind(prev => prev - 1)
-                }}
-              />
-            </div>
-          </div>
-
-          <div className='absolute top-0 right-0 text-white z-10 p-2'>
-            <h1 className='select-none'>Body</h1>
-            <div className='flex gap-x-2'>
-              <FontAwesomeIcon
-                className='cursor-pointer text-green-400'
-                icon={faPlus}
-                onClick={() => {
-                  if (body < 5) setBody(prev => prev + 1)
-                }}
-              />
-              <FontAwesomeIcon
-                className='cursor-pointer text-red-400'
-                icon={faMinus}
-                onClick={() => {
-                  if (body > 0) setBody(prev => prev - 1)
-                }}
-              />
-            </div>
-          </div>
-
-          <div className='absolute bottom-0 left-0 text-white z-10 p-2'>
-            <div className='flex gap-x-2'>
-              <FontAwesomeIcon
-                className='cursor-pointer text-green-400'
-                icon={faPlus}
-                onClick={() => {
-                  if (social < 5) setSocial(prev => prev + 1)
-                }}
-              />
-              <FontAwesomeIcon
-                className='cursor-pointer text-red-400'
-                icon={faMinus}
-                onClick={() => {
-                  if (social > 0) setSocial(prev => prev - 1)
-                }}
-              />
-            </div>
-            <h1 className='select-none'>Social</h1>
-          </div>
-
-          <div className='absolute bottom-0 right-0 text-white z-10 p-2'>
-            <div className='flex gap-x-2'>
-              <FontAwesomeIcon
-                className='cursor-pointer text-green-400'
-                icon={faPlus}
-                onClick={() => {
-                  if (work < 5) setWork(prev => prev + 1)
-                }}
-              />
-              <FontAwesomeIcon
-                className='cursor-pointer text-red-400'
-                icon={faMinus}
-                onClick={() => {
-                  if (work > 0) setWork(prev => prev - 1)
-                }}
-              />
-            </div>
-            <h1 className='select-none'>Work</h1>
-          </div>
+          <MindControl mind={mind} setMind={setMind} />
+          <BodyControl body={body} setBody={setBody} />
+          <SocialControl social={social} setSocial={setSocial} />
+          <WorkControl work={work} setWork={setWork} />
 
           <FirstLayer
             layerContainer={layerContainer}
@@ -156,9 +85,7 @@ export default function IndexPage() {
             work={work}
           />
 
-          <CentrePoint
-            layerContainer={layerContainer}
-          />
+          <CentrePoint layerContainer={layerContainer} />
             
         </div>
 

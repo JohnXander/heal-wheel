@@ -1,32 +1,47 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 import { Dispatch, FC, SetStateAction } from "react";
+import { User } from '@prisma/client';
 
 interface MindProps { 
     mind: number
     setMind: Dispatch<SetStateAction<number>>
+    setUser: Dispatch<SetStateAction<User>>
 }
 
-export const MindControl: FC<MindProps> = ({ mind, setMind }) => {
-    return (
-        <div className='absolute top-0 left-0 text-white z-10 p-2'>
-            <h1 className='select-none'>Mind</h1>
-            <div className='flex gap-x-2'>
-              <FontAwesomeIcon
-                className='cursor-pointer text-green-400'
-                icon={faPlus}
-                onClick={() => {
-                  if (mind < 5) setMind(prev => prev + 1)
-                }}
-              />
-              <FontAwesomeIcon
-                className='cursor-pointer text-red-400'
-                icon={faMinus}
-                onClick={() => {
-                  if (mind > 0) setMind(prev => prev - 1)
-                }}
-              />
-            </div>
+export const MindControl: FC<MindProps> = ({ mind, setMind, setUser }) => {
+
+  const handleIncrement = () => {
+    if (mind < 5) setMind(prev => prev + 1)
+    setUser(prevState => ({
+      ...prevState,
+      mind,
+    }));
+  }
+
+  const handleDecrement = () => {
+    if (mind > 0) setMind(prev => prev - 1)
+    setUser(prevState => ({
+      ...prevState,
+      mind,
+    }));
+  }
+
+  return (
+      <div className='absolute top-0 left-0 text-white z-10 p-2'>
+          <h1 className='select-none'>Mind</h1>
+          <div className='flex gap-x-2'>
+            <FontAwesomeIcon
+              className='cursor-pointer text-green-400'
+              icon={faPlus}
+              onClick={handleIncrement}
+            />
+            <FontAwesomeIcon
+              className='cursor-pointer text-red-400'
+              icon={faMinus}
+              onClick={handleDecrement}
+            />
           </div>
-    )
+        </div>
+  )
 }

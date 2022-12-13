@@ -37,7 +37,7 @@ export const Wheel: FC<WheelProps> = ({ user, setUser }) => {
   return (
       <div className='w-80 h-80 lg:w-96 lg:h-96 flex justify-center items-center relative'>
 
-        <MindControl mind={mind} setMind={setMind} />
+        <MindControl mind={mind} setMind={setMind} setUser={setUser} />
         <BodyControl body={body} setBody={setBody} />
         <SocialControl social={social} setSocial={setSocial} />
         <WorkControl work={work} setWork={setWork} />

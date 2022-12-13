@@ -1,18 +1,6 @@
 // import { trpc } from '../utils/trpc';
 import Head from 'next/head'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
-import { useState } from 'react';
-import FirstLayer from '../components/layers/FirstLayer';
-import SecondLayer from '../components/layers/SecondLayer';
-import ThirdLayer from '../components/layers/ThirdLayer';
-import FourthLayer from '../components/layers/FourthLayer';
-import FifthLayer from '../components/layers/FifthLayer';
-import CentrePoint from '../components/layers/CentrePoint';
-import { MindControl } from '../components/controls/MindControl';
-import { BodyControl } from '../components/controls/BodyControl';
-import { SocialControl } from '../components/controls/SocialControl';
-import { WorkControl } from '../components/controls/WorkControl';
+import Wheel from '../components/wheel';
 
 export default function IndexPage() {
   // const userMutation = trpc.createUser.useMutation()
@@ -20,13 +8,6 @@ export default function IndexPage() {
   // const createUser = (name: string) => {
   //   userMutation.mutate({ name })
   // }
-
-  const [mind, setMind] = useState(0)
-  const [body, setBody] = useState(0)
-  const [social, setSocial] = useState(0)
-  const [work, setWork] = useState(0)
-
-  const layerContainer = 'bg-blue-100 w-full h-full rounded-full relative overflow-hidden'
   
   return (
     <div>
@@ -38,56 +19,7 @@ export default function IndexPage() {
 
       <main className='bg-gray-800 w-screen h-screen flex justify-center items-center'>
 
-        <div className='w-80 h-80 lg:w-96 lg:h-96 flex justify-center items-center relative'>
-
-          <MindControl mind={mind} setMind={setMind} />
-          <BodyControl body={body} setBody={setBody} />
-          <SocialControl social={social} setSocial={setSocial} />
-          <WorkControl work={work} setWork={setWork} />
-
-          <FirstLayer
-            layerContainer={layerContainer}
-            mind={mind}
-            body={body}
-            social={social}
-            work={work}
-          />
-
-          <SecondLayer
-            layerContainer={layerContainer}
-            mind={mind}
-            body={body}
-            social={social}
-            work={work}
-          />
-
-          <ThirdLayer
-            layerContainer={layerContainer}
-            mind={mind}
-            body={body}
-            social={social}
-            work={work}
-          />
-
-          <FourthLayer
-            layerContainer={layerContainer}
-            mind={mind}
-            body={body}
-            social={social}
-            work={work}
-          />
-
-          <FifthLayer
-            layerContainer={layerContainer}
-            mind={mind}
-            body={body}
-            social={social}
-            work={work}
-          />
-
-          <CentrePoint layerContainer={layerContainer} />
-            
-        </div>
+        <Wheel />
 
       </main>
 

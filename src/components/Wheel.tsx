@@ -11,64 +11,79 @@ import { BodyControl } from '../components/controls/BodyControl';
 import { SocialControl } from '../components/controls/SocialControl';
 import { WorkControl } from '../components/controls/WorkControl';
 
-export default function Wheel() {
-    const [mind, setMind] = useState(0)
-    const [body, setBody] = useState(0)
-    const [social, setSocial] = useState(0)
-    const [work, setWork] = useState(0)
+import { Dispatch, FC, SetStateAction } from "react";
+import { User } from '@prisma/client';
+
+interface WheelProps { 
+    user: {
+      id: string;
+      name: string;
+      mind: number;
+      body: number;
+      social: number;
+      work: number;
+    }
+    setUser: Dispatch<SetStateAction<User>>
+}
+
+export const Wheel: FC<WheelProps> = ({ user, setUser }) => {
+  const [mind, setMind] = useState(user.mind)
+  const [body, setBody] = useState(user.body)
+  const [social, setSocial] = useState(user.social)
+  const [work, setWork] = useState(user.work)
   
-    const layerContainer = 'bg-blue-100 w-full h-full rounded-full relative overflow-hidden'
+  const layerContainer = 'bg-blue-100 w-full h-full rounded-full relative overflow-hidden'
 
-    return (
-        <div className='w-80 h-80 lg:w-96 lg:h-96 flex justify-center items-center relative'>
+  return (
+      <div className='w-80 h-80 lg:w-96 lg:h-96 flex justify-center items-center relative'>
 
-          <MindControl mind={mind} setMind={setMind} />
-          <BodyControl body={body} setBody={setBody} />
-          <SocialControl social={social} setSocial={setSocial} />
-          <WorkControl work={work} setWork={setWork} />
+        <MindControl mind={mind} setMind={setMind} />
+        <BodyControl body={body} setBody={setBody} />
+        <SocialControl social={social} setSocial={setSocial} />
+        <WorkControl work={work} setWork={setWork} />
 
-          <FirstLayer
-            layerContainer={layerContainer}
-            mind={mind}
-            body={body}
-            social={social}
-            work={work}
-          />
+        <FirstLayer
+          layerContainer={layerContainer}
+          mind={mind}
+          body={body}
+          social={social}
+          work={work}
+        />
 
-          <SecondLayer
-            layerContainer={layerContainer}
-            mind={mind}
-            body={body}
-            social={social}
-            work={work}
-          />
+        <SecondLayer
+          layerContainer={layerContainer}
+          mind={mind}
+          body={body}
+          social={social}
+          work={work}
+        />
 
-          <ThirdLayer
-            layerContainer={layerContainer}
-            mind={mind}
-            body={body}
-            social={social}
-            work={work}
-          />
+        <ThirdLayer
+          layerContainer={layerContainer}
+          mind={mind}
+          body={body}
+          social={social}
+          work={work}
+        />
 
-          <FourthLayer
-            layerContainer={layerContainer}
-            mind={mind}
-            body={body}
-            social={social}
-            work={work}
-          />
+        <FourthLayer
+          layerContainer={layerContainer}
+          mind={mind}
+          body={body}
+          social={social}
+          work={work}
+        />
 
-          <FifthLayer
-            layerContainer={layerContainer}
-            mind={mind}
-            body={body}
-            social={social}
-            work={work}
-          />
+        <FifthLayer
+          layerContainer={layerContainer}
+          mind={mind}
+          body={body}
+          social={social}
+          work={work}
+        />
 
-          <CentrePoint layerContainer={layerContainer} />
-            
-        </div>
-    )
+        <CentrePoint layerContainer={layerContainer} />
+          
+      </div>
+  )
 }

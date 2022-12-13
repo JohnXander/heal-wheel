@@ -17,6 +17,15 @@ export const appRouter = router({
       });
       return { createdUser }
     }),
+  
+  getUser: procedure
+    .input( z.string() )
+    .query(async ({ input }) => {
+      const foundUser = await prisma.user.findUnique({
+        where: { id: input }
+      });
+      return { foundUser }
+    }),
 });
 
 export type AppRouter = typeof appRouter;

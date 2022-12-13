@@ -1,13 +1,13 @@
-// import { trpc } from '../utils/trpc';
-import Head from 'next/head'
-import Wheel from '../components/Wheel';
+import { User } from '@prisma/client';
+import { trpc } from '../utils/trpc';
+import { useState } from 'react';
+import Head from 'next/head';
+import { Wheel } from '../components/Wheel';
 
 export default function IndexPage() {
-  // const userMutation = trpc.createUser.useMutation()
-
-  // const createUser = (name: string) => {
-  //   userMutation.mutate({ name, mind: 0, body: 0, social: 0, work: 0 })
-  // }
+  const userQuery = trpc.getUser.useQuery("clbmnqiej00007kjcvnrladne");
+  const foundUser = userQuery.data?.foundUser;
+  const [user, setUser] = useState<User>(foundUser as User);
   
   return (
     <div>
@@ -19,7 +19,7 @@ export default function IndexPage() {
 
       <main className='bg-gray-800 w-screen h-screen flex justify-center items-center'>
 
-        <Wheel />
+        <Wheel user={user} setUser={setUser} />
 
       </main>
 

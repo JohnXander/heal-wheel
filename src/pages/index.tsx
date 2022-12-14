@@ -34,11 +34,11 @@ export default function IndexPage() {
           onClick={handleSave}>
           SAVE STATS
         </button>}
-        {savedStats && <button
-          className='bg-green-500 border-2 border-green-500 text-white rounded p-2 pointer-events-none'
+        {savedStats && <h1
+          className='border-2 border-gray-800 text-green-500 p-2 pointer-events-none'
           onClick={handleSave}>
           SAVED
-        </button>}
+        </h1>}
       </main>
 
   </div>

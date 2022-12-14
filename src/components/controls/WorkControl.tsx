@@ -5,6 +5,7 @@ import { User } from '@prisma/client';
 
 interface WorkProps { 
   setUser: Dispatch<SetStateAction<User>>
+  setSavedStats: Dispatch<SetStateAction<boolean>>
   user: {
     id: string;
     name: string;
@@ -15,7 +16,7 @@ interface WorkProps {
   }
 }
 
-export const WorkControl: FC<WorkProps> = ({ user, setUser }) => {
+export const WorkControl: FC<WorkProps> = ({ user, setUser, setSavedStats }) => {
     const handleIncrement = () => {
       const { work } = user;
       if (work < 5) {
@@ -24,6 +25,7 @@ export const WorkControl: FC<WorkProps> = ({ user, setUser }) => {
           ...prevState,
           work: newWork,
         }));
+        setSavedStats(false);
       }
     }
 
@@ -35,6 +37,7 @@ export const WorkControl: FC<WorkProps> = ({ user, setUser }) => {
           ...prevState,
           work: newWork,
         }));
+        setSavedStats(false);
       }
     }
   

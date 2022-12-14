@@ -5,6 +5,7 @@ import { User } from '@prisma/client';
 
 interface MindProps { 
   setUser: Dispatch<SetStateAction<User>>
+  setSavedStats: Dispatch<SetStateAction<boolean>>
   user: {
     id: string;
     name: string;
@@ -15,7 +16,7 @@ interface MindProps {
   }
 }
 
-export const MindControl: FC<MindProps> = ({ user, setUser }) => {
+export const MindControl: FC<MindProps> = ({ user, setUser, setSavedStats }) => {
   const handleIncrement = () => {
     const { mind } = user;
     if (mind < 5) {
@@ -24,6 +25,7 @@ export const MindControl: FC<MindProps> = ({ user, setUser }) => {
         ...prevState,
         mind: newMind,
       }));
+      setSavedStats(false)
     }
   }
 
@@ -35,6 +37,7 @@ export const MindControl: FC<MindProps> = ({ user, setUser }) => {
         ...prevState,
         mind: newMind,
       }));
+      setSavedStats(false)
     }
   }
 

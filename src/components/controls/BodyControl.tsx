@@ -5,6 +5,7 @@ import { User } from '@prisma/client';
 
 interface BodyProps { 
   setUser: Dispatch<SetStateAction<User>>
+  setSavedStats: Dispatch<SetStateAction<boolean>>
   user: {
     id: string;
     name: string;
@@ -15,7 +16,7 @@ interface BodyProps {
   }
 }
 
-export const BodyControl: FC<BodyProps> = ({ user, setUser }) => {
+export const BodyControl: FC<BodyProps> = ({ user, setUser, setSavedStats }) => {
     const handleIncrement = () => {
       const { body } = user;
       if (body < 5) {
@@ -24,6 +25,7 @@ export const BodyControl: FC<BodyProps> = ({ user, setUser }) => {
           ...prevState,
           body: newMind,
         }));
+        setSavedStats(false);
       }
     }
 
@@ -35,6 +37,7 @@ export const BodyControl: FC<BodyProps> = ({ user, setUser }) => {
           ...prevState,
           body: newBody,
         }));
+        setSavedStats(false);
       }
     }
 

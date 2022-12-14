@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import FirstLayer from '../components/layers/FirstLayer';
 import SecondLayer from '../components/layers/SecondLayer';
 import ThirdLayer from '../components/layers/ThirdLayer';
@@ -23,46 +21,27 @@ interface WheelProps {
       social: number;
       work: number;
     }
-    setUser: Dispatch<SetStateAction<User>>
+  setUser: Dispatch<SetStateAction<User>>
+  setSavedStats: Dispatch<SetStateAction<boolean>>
 }
 
-export const Wheel: FC<WheelProps> = ({ user, setUser }) => {
+export const Wheel: FC<WheelProps> = ({ user, setUser, setSavedStats }) => {
   
   const layerContainer = 'bg-blue-100 w-full h-full rounded-full relative overflow-hidden'
 
   return (
       <div className='w-80 h-80 lg:w-96 lg:h-96 flex justify-center items-center relative'>
 
-        <MindControl user={user} setUser={setUser} />
-        <BodyControl user={user} setUser={setUser} />
-        <SocialControl user={user} setUser={setUser} />
-        <WorkControl user={user} setUser={setUser} />
+        <MindControl user={user} setUser={setUser} setSavedStats={setSavedStats} />
+        <BodyControl user={user} setUser={setUser} setSavedStats={setSavedStats} />
+        <SocialControl user={user} setUser={setUser} setSavedStats={setSavedStats} />
+        <WorkControl user={user} setUser={setUser} setSavedStats={setSavedStats} />
 
-        <FirstLayer
-          layerContainer={layerContainer}
-          user={user}
-        />
-
-        <SecondLayer
-          layerContainer={layerContainer}
-          user={user}
-        />
-
-        <ThirdLayer
-          layerContainer={layerContainer}
-          user={user}
-        />
-
-        <FourthLayer
-          layerContainer={layerContainer}
-          user={user}
-        />
-
-        <FifthLayer
-          layerContainer={layerContainer}
-          user={user}
-        />
-
+        <FirstLayer layerContainer={layerContainer} user={user} />
+        <SecondLayer layerContainer={layerContainer} user={user} />
+        <ThirdLayer layerContainer={layerContainer} user={user} />
+        <FourthLayer layerContainer={layerContainer} user={user} />
+        <FifthLayer layerContainer={layerContainer} user={user} />
         <CentrePoint layerContainer={layerContainer} />
           
       </div>

@@ -8,6 +8,14 @@ export default function IndexPage() {
   const userQuery = trpc.getUser.useQuery("clbmnqiej00007kjcvnrladne");
   const foundUser = userQuery.data?.foundUser;
   const [user, setUser] = useState<User>(foundUser as User);
+  const [savedStats, setSavedStats] = useState<boolean>(false)
+
+  const userMutation = trpc.updateUser.useMutation();
+
+  const handleSave = () => {
+    userMutation.mutate(user);
+    setSavedStats(true);
+  }
   
   return (
     <div>
@@ -17,10 +25,20 @@ export default function IndexPage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className='bg-gray-800 w-screen h-screen flex justify-center items-center'>
+      <main className='bg-gray-800 w-screen h-screen flex flex-col justify-center items-center'>
 
-        <Wheel user={user} setUser={setUser} />
-
+        <Wheel user={user} setUser={setUser} setSavedStats={setSavedStats} />
+        <div className='m-4'></div>
+        {!savedStats && <button
+          className='border-2 border-green-400 text-green-400 rounded p-2 hover:text-white hover:border-green-500 hover:bg-green-500'
+          onClick={handleSave}>
+          SAVE STATS
+        </button>}
+        {savedStats && <button
+          className='bg-green-500 border-2 border-green-500 text-white rounded p-2 pointer-events-none'
+          onClick={handleSave}>
+          SAVED
+        </button>}
       </main>
 
   </div>

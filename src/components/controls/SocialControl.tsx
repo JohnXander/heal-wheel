@@ -5,6 +5,7 @@ import { User } from '@prisma/client';
 
 interface SocialProps { 
   setUser: Dispatch<SetStateAction<User>>
+  setSavedStats: Dispatch<SetStateAction<boolean>>
   user: {
     id: string;
     name: string;
@@ -15,7 +16,7 @@ interface SocialProps {
   }
 }
 
-export const SocialControl: FC<SocialProps> = ({ user, setUser }) => {
+export const SocialControl: FC<SocialProps> = ({ user, setUser, setSavedStats }) => {
     const handleIncrement = () => {
       const { social } = user;
       if (social < 5) {
@@ -24,6 +25,7 @@ export const SocialControl: FC<SocialProps> = ({ user, setUser }) => {
           ...prevState,
           social: newSocial,
         }));
+        setSavedStats(false);
       }
     }
 
@@ -35,6 +37,7 @@ export const SocialControl: FC<SocialProps> = ({ user, setUser }) => {
           ...prevState,
           social: newSocial,
         }));
+        setSavedStats(false);
       }
     }
   

@@ -13,8 +13,7 @@ import { User } from '@prisma/client';
 import { trpc } from '../utils/trpc';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
-import { SaveModal } from './checkmodals/SaveModal';
+import { SaveModal } from './modals/SaveModal';
 
 interface WheelProps { 
   user: {
@@ -30,9 +29,10 @@ interface WheelProps {
   setSavedStats: Dispatch<SetStateAction<boolean>>
   saveModalOpen: boolean
   setSaveModalOpen: Dispatch<SetStateAction<boolean>>
+  handleNavigate: (params: string) => any
 }
 
-export const Wheel: FC<WheelProps> = ({ user, setUser, savedStats, setSavedStats, saveModalOpen, setSaveModalOpen }) => {
+export const Wheel: FC<WheelProps> = ({ user, setUser, savedStats, setSavedStats, saveModalOpen, setSaveModalOpen, handleNavigate }) => {
   
   const layerContainer = 'bg-blue-100 w-full h-full rounded-full relative overflow-hidden'
 
@@ -47,7 +47,7 @@ export const Wheel: FC<WheelProps> = ({ user, setUser, savedStats, setSavedStats
     <div>
       <div className='w-80 h-80 lg:w-96 lg:h-96 flex justify-center items-center relative'>
 
-          {saveModalOpen && <SaveModal setSaveModalOpen={setSaveModalOpen} />}
+          {saveModalOpen && <SaveModal setSaveModalOpen={setSaveModalOpen} handleNavigate={handleNavigate} />}
 
           <MindControl user={user} setUser={setUser} setSavedStats={setSavedStats} />
           <BodyControl user={user} setUser={setUser} setSavedStats={setSavedStats} />

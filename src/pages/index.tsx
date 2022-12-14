@@ -15,6 +15,8 @@ export default function IndexPage() {
   const handleNavigate = (page: string) => {
     if (page === "advice" && !savedStats) {
       setSaveModalOpen(true);
+    } else if (page === "confirm") {
+      setPage("advice")
     } else {
       setPage(page)
     }
@@ -49,6 +51,7 @@ export default function IndexPage() {
             setSavedStats={setSavedStats}
             saveModalOpen={saveModalOpen}
             setSaveModalOpen={setSaveModalOpen}
+            handleNavigate={handleNavigate}
           />
         }
         

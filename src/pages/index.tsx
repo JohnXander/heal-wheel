@@ -8,11 +8,16 @@ export default function IndexPage() {
   const userQuery = trpc.getUser.useQuery("clbmnqiej00007kjcvnrladne");
   const foundUser = userQuery.data?.foundUser;
   const [user, setUser] = useState<User>(foundUser as User);
-  const [page, setPage] = useState<string>("wheel")
-  const [savedStats, setSavedStats] = useState<boolean>(true)
+  const [page, setPage] = useState<string>("wheel");
+  const [savedStats, setSavedStats] = useState<boolean>(true);
+  const [saveModalOpen, setSaveModalOpen] = useState<boolean>(false);
 
   const handleNavigate = (page: string) => {
-    setPage(page)
+    if (page === "advice" && !savedStats) {
+      setSaveModalOpen(true);
+    } else {
+      setPage(page)
+    }
   }
   
   return (
@@ -36,7 +41,16 @@ export default function IndexPage() {
           GO TO WHEEL
         </button>}
 
-        {page === "wheel" && <Wheel user={user} setUser={setUser} savedStats={savedStats} setSavedStats={setSavedStats} />}
+        {page === "wheel" &&
+          <Wheel
+            user={user}
+            setUser={setUser}
+            savedStats={savedStats}
+            setSavedStats={setSavedStats}
+            saveModalOpen={saveModalOpen}
+            setSaveModalOpen={setSaveModalOpen}
+          />
+        }
         
       </main>
 

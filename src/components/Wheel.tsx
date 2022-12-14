@@ -11,8 +11,10 @@ import { WorkControl } from '../components/controls/WorkControl';
 import { Dispatch, FC, SetStateAction } from "react";
 import { User } from '@prisma/client';
 import { trpc } from '../utils/trpc';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
+import { SaveModal } from './checkmodals/SaveModal';
 
 interface WheelProps { 
   user: {
@@ -26,9 +28,11 @@ interface WheelProps {
   setUser: Dispatch<SetStateAction<User>>
   savedStats: boolean
   setSavedStats: Dispatch<SetStateAction<boolean>>
+  saveModalOpen: boolean
+  setSaveModalOpen: Dispatch<SetStateAction<boolean>>
 }
 
-export const Wheel: FC<WheelProps> = ({ user, setUser, savedStats, setSavedStats }) => {
+export const Wheel: FC<WheelProps> = ({ user, setUser, savedStats, setSavedStats, saveModalOpen, setSaveModalOpen }) => {
   
   const layerContainer = 'bg-blue-100 w-full h-full rounded-full relative overflow-hidden'
 
@@ -42,6 +46,8 @@ export const Wheel: FC<WheelProps> = ({ user, setUser, savedStats, setSavedStats
   return (
     <div>
       <div className='w-80 h-80 lg:w-96 lg:h-96 flex justify-center items-center relative'>
+
+          {saveModalOpen && <SaveModal setSaveModalOpen={setSaveModalOpen} />}
 
           <MindControl user={user} setUser={setUser} setSavedStats={setSavedStats} />
           <BodyControl user={user} setUser={setUser} setSavedStats={setSavedStats} />

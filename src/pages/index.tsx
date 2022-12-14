@@ -3,20 +3,16 @@ import { trpc } from '../utils/trpc';
 import { useState } from 'react';
 import Head from 'next/head';
 import { Wheel } from '../components/Wheel';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
 export default function IndexPage() {
   const userQuery = trpc.getUser.useQuery("clbmnqiej00007kjcvnrladne");
   const foundUser = userQuery.data?.foundUser;
   const [user, setUser] = useState<User>(foundUser as User);
-  const [savedStats, setSavedStats] = useState<boolean>(false)
+  const [page, setPage] = useState<string>("wheel")
+  const [savedStats, setSavedStats] = useState<boolean>(true)
 
-  const userMutation = trpc.updateUser.useMutation();
-
-  const handleSave = () => {
-    userMutation.mutate(user);
-    setSavedStats(true);
+  const handleNavigate = (page: string) => {
+    setPage(page)
   }
   
   return (
@@ -29,21 +25,19 @@ export default function IndexPage() {
 
       <main className='bg-gray-800 w-screen h-screen flex flex-col justify-center items-center'>
 
-        <Wheel user={user} setUser={setUser} setSavedStats={setSavedStats} />
-        {!savedStats && <button
-          className='border-2 border-green-400 text-green-400 rounded p-2 hover:text-white hover:border-green-500 hover:bg-green-500 my-6'
-          onClick={handleSave}>
-          SAVE STATS
+        {page === "wheel" && <button
+          onClick={() => handleNavigate("advice")}
+          className='border-2 border-blue-400 text-blue-400 rounded p-2 hover:text-white hover:border-blue-500 hover:bg-blue-500 my-6'>
+          GO TO ADVICE
         </button>}
-        {savedStats && <h1
-          className='border-2 border-gray-800 text-green-500 pointer-events-none mt-4'
-          onClick={handleSave}>
-          SAVED
-          <FontAwesomeIcon
-            className='cursor-pointer text-green-400 text-xs'
-            icon={faCheck}
-          />
-        </h1>}
+        {page === "advice" && <button
+          onClick={() => handleNavigate("wheel")}
+          className='border-2 border-blue-400 text-blue-400 rounded p-2 hover:text-white hover:border-blue-500 hover:bg-blue-500 my-6'>
+          GO TO WHEEL
+        </button>}
+
+        {page === "wheel" && <Wheel user={user} setUser={setUser} savedStats={savedStats} setSavedStats={setSavedStats} />}
+        
       </main>
 
   </div>

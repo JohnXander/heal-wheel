@@ -4,27 +4,38 @@ import { Dispatch, FC, SetStateAction } from "react";
 import { User } from '@prisma/client';
 
 interface MindProps { 
-    mind: number
-    setMind: Dispatch<SetStateAction<number>>
-    setUser: Dispatch<SetStateAction<User>>
+  setUser: Dispatch<SetStateAction<User>>
+  user: {
+    id: string;
+    name: string;
+    mind: number;
+    body: number;
+    social: number;
+    work: number;
+  }
 }
 
-export const MindControl: FC<MindProps> = ({ mind, setMind, setUser }) => {
-
+export const MindControl: FC<MindProps> = ({ user, setUser }) => {
   const handleIncrement = () => {
-    if (mind < 5) setMind(prev => prev + 1)
-    setUser(prevState => ({
-      ...prevState,
-      mind,
-    }));
+    const { mind } = user;
+    if (mind < 5) {
+      const newMind = mind + 1;
+      setUser(prevState => ({
+        ...prevState,
+        mind: newMind,
+      }));
+    }
   }
 
   const handleDecrement = () => {
-    if (mind > 0) setMind(prev => prev - 1)
-    setUser(prevState => ({
-      ...prevState,
-      mind,
-    }));
+    const { mind } = user;
+    if (mind > 0) {
+      const newMind = mind - 1;
+      setUser(prevState => ({
+        ...prevState,
+        mind: newMind,
+      }));
+    }
   }
 
   return (

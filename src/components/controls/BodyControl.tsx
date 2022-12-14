@@ -1,13 +1,43 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 import { Dispatch, FC, SetStateAction } from "react";
+import { User } from '@prisma/client';
 
 interface BodyProps { 
-    body: number
-    setBody: Dispatch<SetStateAction<number>>
+  setUser: Dispatch<SetStateAction<User>>
+  user: {
+    id: string;
+    name: string;
+    mind: number;
+    body: number;
+    social: number;
+    work: number;
+  }
 }
 
-export const BodyControl: FC<BodyProps> = ({ body, setBody }) => {
+export const BodyControl: FC<BodyProps> = ({ user, setUser }) => {
+    const handleIncrement = () => {
+      const { body } = user;
+      if (body < 5) {
+        const newMind = body + 1;
+        setUser(prevState => ({
+          ...prevState,
+          body: newMind,
+        }));
+      }
+    }
+
+    const handleDecrement = () => {
+      const { body } = user;
+      if (body > 0) {
+        const newBody = body - 1;
+        setUser(prevState => ({
+          ...prevState,
+          body: newBody,
+        }));
+      }
+    }
+
     return (
         <div className='absolute top-0 right-0 text-white z-10 p-2'>
             <h1 className='select-none'>Body</h1>
@@ -15,18 +45,14 @@ export const BodyControl: FC<BodyProps> = ({ body, setBody }) => {
               <FontAwesomeIcon
                 className='cursor-pointer text-green-400'
                 icon={faPlus}
-                onClick={() => {
-                  if (body < 5) setBody(prev => prev + 1)
-                }}
+                onClick={handleIncrement}
               />
               <FontAwesomeIcon
                 className='cursor-pointer text-red-400'
                 icon={faMinus}
-                onClick={() => {
-                  if (body > 0) setBody(prev => prev - 1)
-                }}
+                onClick={handleDecrement}
               />
             </div>
-          </div>
+        </div>
     )
 }

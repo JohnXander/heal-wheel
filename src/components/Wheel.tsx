@@ -27,59 +27,40 @@ interface WheelProps {
 }
 
 export const Wheel: FC<WheelProps> = ({ user, setUser }) => {
-  const [mind, setMind] = useState(user?.mind)
-  const [body, setBody] = useState(user?.body)
-  const [social, setSocial] = useState(user?.social)
-  const [work, setWork] = useState(user?.work)
   
   const layerContainer = 'bg-blue-100 w-full h-full rounded-full relative overflow-hidden'
 
   return (
       <div className='w-80 h-80 lg:w-96 lg:h-96 flex justify-center items-center relative'>
 
-        <MindControl mind={mind} setMind={setMind} setUser={setUser} />
-        <BodyControl body={body} setBody={setBody} />
-        <SocialControl social={social} setSocial={setSocial} />
-        <WorkControl work={work} setWork={setWork} />
+        <MindControl user={user} setUser={setUser} />
+        <BodyControl user={user} setUser={setUser} />
+        <SocialControl user={user} setUser={setUser} />
+        <WorkControl user={user} setUser={setUser} />
 
         <FirstLayer
           layerContainer={layerContainer}
-          mind={mind}
-          body={body}
-          social={social}
-          work={work}
+          user={user}
         />
 
         <SecondLayer
           layerContainer={layerContainer}
-          mind={mind}
-          body={body}
-          social={social}
-          work={work}
+          user={user}
         />
 
         <ThirdLayer
           layerContainer={layerContainer}
-          mind={mind}
-          body={body}
-          social={social}
-          work={work}
+          user={user}
         />
 
         <FourthLayer
           layerContainer={layerContainer}
-          mind={mind}
-          body={body}
-          social={social}
-          work={work}
+          user={user}
         />
 
         <FifthLayer
           layerContainer={layerContainer}
-          mind={mind}
-          body={body}
-          social={social}
-          work={work}
+          user={user}
         />
 
         <CentrePoint layerContainer={layerContainer} />

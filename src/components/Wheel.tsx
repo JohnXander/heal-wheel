@@ -10,7 +10,6 @@ import { SocialControl } from '../components/controls/SocialControl';
 import { WorkControl } from '../components/controls/WorkControl';
 import { Dispatch, FC, SetStateAction } from "react";
 import { User } from '@prisma/client';
-import { trpc } from '../utils/trpc';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { SaveModal } from './modals/SaveModal';
@@ -30,18 +29,21 @@ interface WheelProps {
   saveModalOpen: boolean
   setSaveModalOpen: Dispatch<SetStateAction<boolean>>
   handleNavigate: (params: string) => any
+  handleSave: () => any
 }
 
-export const Wheel: FC<WheelProps> = ({ user, setUser, savedStats, setSavedStats, saveModalOpen, setSaveModalOpen, handleNavigate }) => {
+export const Wheel: FC<WheelProps> = ({
+  user,
+  setUser,
+  savedStats,
+  setSavedStats,
+  saveModalOpen,
+  setSaveModalOpen,
+  handleNavigate,
+  handleSave
+}) => {
   
   const layerContainer = 'bg-blue-100 w-full h-full rounded-full relative overflow-hidden'
-
-  const userMutation = trpc.updateUser.useMutation();
-
-  const handleSave = () => {
-    userMutation.mutate(user);
-    setSavedStats(true);
-  }
 
   return (
     <div>

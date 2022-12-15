@@ -12,11 +12,20 @@ export default function IndexPage() {
   const [savedStats, setSavedStats] = useState<boolean>(true);
   const [saveModalOpen, setSaveModalOpen] = useState<boolean>(false);
 
+  const userMutation = trpc.updateUser.useMutation();
+
+  const handleSave = () => {
+    userMutation.mutate(user);
+    setSavedStats(true);
+  }
+
   const handleNavigate = (page: string) => {
     if (page === "advice" && !savedStats) {
       setSaveModalOpen(true);
     } else if (page === "confirm") {
       setPage("advice")
+      handleSave()
+      setSaveModalOpen(false)
     } else {
       setPage(page)
     }
@@ -52,6 +61,7 @@ export default function IndexPage() {
             saveModalOpen={saveModalOpen}
             setSaveModalOpen={setSaveModalOpen}
             handleNavigate={handleNavigate}
+            handleSave={handleSave}
           />
         }
         

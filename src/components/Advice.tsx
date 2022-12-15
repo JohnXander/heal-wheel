@@ -31,7 +31,7 @@ export const Advice: FC<AdviceProps> = ({ user }) => {
                                 )
                             })}
                         </div>
-                        <button className="py-2 px-4 bg-blue-300 rounded mb-2">See advice</button>
+                        <button className="py-2 px-4 bg-blue-300 rounded mb-2 hover:bg-blue-400">See advice</button>
                     </div>
                 </div>
                 <div className='border-b-2 w-40 h-40 lg:w-48 lg:h-48 absolute right-0 top-0 flex flex-col items-center justify-center'>
@@ -48,7 +48,7 @@ export const Advice: FC<AdviceProps> = ({ user }) => {
                                 )
                             })}
                         </div>
-                        <button className="py-2 px-4 bg-green-300 rounded mb-2">See advice</button>
+                        <button className="py-2 px-4 bg-green-300 rounded mb-2 hover:bg-green-400">See advice</button>
                     </div>
                 </div>
                 <div className='border-r-2 w-40 h-40 lg:w-48 lg:h-48 absolute bottom-0 left-0 flex flex-col items-center justify-center'>
@@ -65,7 +65,7 @@ export const Advice: FC<AdviceProps> = ({ user }) => {
                                 )
                             })}
                         </div>
-                        <button className="py-2 px-4 bg-yellow-300 rounded mb-2">See advice</button>
+                        <button className="py-2 px-4 bg-yellow-300 rounded mb-2 hover:bg-yellow-400">See advice</button>
                     </div>
                 </div>
                 <div className='w-40 h-40 lg:w-48 lg:h-48 absolute bottom-0 right-0 flex flex-col items-center justify-center'>
@@ -82,14 +82,14 @@ export const Advice: FC<AdviceProps> = ({ user }) => {
                                 )
                             })}
                         </div>
-                        <button className="py-2 px-4 bg-red-300 rounded mb-2">See advice</button>
+                        <button className="py-2 px-4 bg-red-300 rounded mb-2 hover:bg-red-400">See advice</button>
                     </div>
                 </div>
             </div>
             <div className='flex justify-center'>
                 <button
-                    className='border-2 border-green-400 text-green-400 rounded p-2 hover:text-white hover:border-green-500 hover:bg-green-500 my-8'>
-                    HELLO
+                    className='border-2 border-gray-800 text-gray-400 rounded py-2 px-6 mt-6 mb-10 pointer-events-none select-none'>
+                    HEAL WHEEL (2022)
                 </button>
             </div>
         </div>

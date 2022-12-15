@@ -3,6 +3,7 @@ import { trpc } from '../utils/trpc';
 import { useState } from 'react';
 import Head from 'next/head';
 import { Wheel } from '../components/Wheel';
+import { Advice } from '../components/Advice';
 
 export default function IndexPage() {
   const userQuery = trpc.getUser.useQuery("clbmnqiej00007kjcvnrladne");
@@ -63,6 +64,10 @@ export default function IndexPage() {
             handleNavigate={handleNavigate}
             handleSave={handleSave}
           />
+        }
+
+        {page === "advice" &&
+          <Advice user={user} />
         }
         
       </main>

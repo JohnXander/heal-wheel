@@ -13,6 +13,7 @@ import { User } from '@prisma/client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { SaveModal } from './modals/SaveModal';
+import PrimaryLayer from './layers/PrimaryLayer';
 
 interface WheelProps { 
   user: {
@@ -44,24 +45,51 @@ export const Wheel: FC<WheelProps> = ({
 }) => {
   
   const layerContainer = 'bg-blue-100 w-full h-full rounded-full relative overflow-hidden'
+  const primaryColors = ["#A4CAFE", "#EBF5FF", "#84E1BC", "#F3FAF7", "#FACA15", "#FDFDEA", "#F8B4B4", "#FDF2F2" ]
 
   return (
     <div>
       <div className='w-80 h-80 lg:w-96 lg:h-96 flex justify-center items-center relative'>
 
-          {saveModalOpen && <SaveModal setSaveModalOpen={setSaveModalOpen} handleNavigate={handleNavigate} />}
+        {saveModalOpen && <SaveModal setSaveModalOpen={setSaveModalOpen} handleNavigate={handleNavigate} />}
 
-          <MindControl user={user} setUser={setUser} setSavedStats={setSavedStats} />
-          <BodyControl user={user} setUser={setUser} setSavedStats={setSavedStats} />
-          <SocialControl user={user} setUser={setUser} setSavedStats={setSavedStats} />
-          <WorkControl user={user} setUser={setUser} setSavedStats={setSavedStats} />
+        <MindControl user={user} setUser={setUser} setSavedStats={setSavedStats} />
+        <BodyControl user={user} setUser={setUser} setSavedStats={setSavedStats} />
+        <SocialControl user={user} setUser={setUser} setSavedStats={setSavedStats} />
+        <WorkControl user={user} setUser={setUser} setSavedStats={setSavedStats} />
+      
+        <PrimaryLayer
+          layerContainer={layerContainer}
+          user={user}
+          primaryColors={primaryColors}
+          containerSize={"w-80 h-80 lg:w-96 lg:h-96"}
+          segmentSize={"w-40 h-40 lg:w-48 lg:h-48"}
+          level={4}
+        />
 
-          <FirstLayer layerContainer={layerContainer} user={user} />
-          <SecondLayer layerContainer={layerContainer} user={user} />
-          <ThirdLayer layerContainer={layerContainer} user={user} />
-          <FourthLayer layerContainer={layerContainer} user={user} />
-          <FifthLayer layerContainer={layerContainer} user={user} />
-          <CentrePoint layerContainer={layerContainer} />
+        <SecondLayer layerContainer={layerContainer} user={user} />
+
+        <PrimaryLayer
+          layerContainer={layerContainer}
+          user={user}
+          primaryColors={primaryColors}
+          containerSize={"w-48 h-48 lg:w-64 lg:h-64"}
+          segmentSize={"w-24 h-24 lg:w-32 lg:h-32"}
+          level={2}
+        />
+
+        <FourthLayer layerContainer={layerContainer} user={user} />
+
+        <PrimaryLayer
+          layerContainer={layerContainer}
+          user={user}
+          primaryColors={primaryColors}
+          containerSize={"w-16 h-16 lg:w-32 lg:h-32"}
+          segmentSize={"w-8 h-8 lg:w-16 lg:h-16"}
+          level={0}
+        />
+
+        <CentrePoint layerContainer={layerContainer} />
             
       </div>
       <div className='flex justify-center'>

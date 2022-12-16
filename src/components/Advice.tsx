@@ -1,8 +1,5 @@
 import { FC } from "react";
-import { MindCard } from "./cards/MindCard";
-import { BodyCard } from "./cards/BodyCard";
-import { SocialCard } from "./cards/SocialCard";
-import { WorkCard } from "./cards/WorkCard";
+import { AdviceCard } from "./cards/AdviceCard";
 
 interface AdviceProps { 
     user: {
@@ -16,13 +13,16 @@ interface AdviceProps {
 }
   
 export const Advice: FC<AdviceProps> = ({ user }) => {
+
+    const { mind, body, social, work } = user;
+
     return (
         <div>
             <div className='w-80 h-80 lg:w-96 lg:h-96 flex justify-center items-center relative rounded border-2'>
-                <MindCard user={user} />
-                <BodyCard user={user} />
-                <SocialCard user={user} />
-                <WorkCard user={user} />
+                <AdviceCard title={"Mind"} stars={mind} position={"left-0 top-0"} color={"blue"} />
+                <AdviceCard title={"Body"} stars={body} position={"right-0 top-0"} color={"green"} />
+                <AdviceCard title={"Social"} stars={social} position={"bottom-0 left-0"} color={"yellow"} />
+                <AdviceCard title={"Work"} stars={work} position={"bottom-0 right-0"} color={"red"} />
             </div>
             <div className='flex justify-center'>
                 <button

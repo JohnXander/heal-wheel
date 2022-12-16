@@ -9,7 +9,7 @@ interface AdviceCardProps {
     color: string
 }
 
-//test 2
+//test 3
   
 export const AdviceCard: FC<AdviceCardProps> = ({ title, stars, position, color }) => {
     return (

@@ -8,6 +8,8 @@ interface AdviceCardProps {
     position: string
     color: string
 }
+
+//test 2
   
 export const AdviceCard: FC<AdviceCardProps> = ({ title, stars, position, color }) => {
     return (

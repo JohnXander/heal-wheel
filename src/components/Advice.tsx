@@ -1,5 +1,6 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { AdviceCard } from "./cards/AdviceCard";
+import { AdviceModal } from "./modals/AdviceModal";
 
 interface AdviceProps { 
     user: {
@@ -13,16 +14,45 @@ interface AdviceProps {
 }
   
 export const Advice: FC<AdviceProps> = ({ user }) => {
-
     const { mind, body, social, work } = user;
+    const [adviceModalOpen, setAdviceModalOpen] = useState("");
 
     return (
         <div>
             <div className='w-80 h-80 lg:w-96 lg:h-96 flex justify-center items-center relative rounded border-2'>
-                <AdviceCard title={"Mind"} stars={mind} position={"left-0 top-0"} color={"blue"} />
-                <AdviceCard title={"Body"} stars={body} position={"right-0 top-0"} color={"green"} />
-                <AdviceCard title={"Social"} stars={social} position={"bottom-0 left-0"} color={"yellow"} />
-                <AdviceCard title={"Work"} stars={work} position={"bottom-0 right-0"} color={"red"} />
+                {adviceModalOpen === "Mind" && <AdviceModal setAdviceModalOpen={setAdviceModalOpen} title={"Mind"} />}
+                {adviceModalOpen === "Body" && <AdviceModal setAdviceModalOpen={setAdviceModalOpen} title={"Body"} />}
+                {adviceModalOpen === "Social" && <AdviceModal setAdviceModalOpen={setAdviceModalOpen} title={"Social"} />}
+                {adviceModalOpen === "Work" && <AdviceModal setAdviceModalOpen={setAdviceModalOpen} title={"Work"} />}
+
+                <AdviceCard
+                    title={"Mind"}
+                    stars={mind}
+                    position={"left-0 top-0"}
+                    color={"blue"}
+                    setAdviceModalOpen={setAdviceModalOpen}
+                />
+                <AdviceCard 
+                    title={"Body"} 
+                    stars={body} 
+                    position={"right-0 top-0"} 
+                    color={"green"}
+                    setAdviceModalOpen={setAdviceModalOpen}
+                />
+                <AdviceCard 
+                    title={"Social"} 
+                    stars={social} 
+                    position={"bottom-0 left-0"} 
+                    color={"yellow"} 
+                    setAdviceModalOpen={setAdviceModalOpen}
+                />
+                <AdviceCard 
+                    title={"Work"} 
+                    stars={work} 
+                    position={"bottom-0 right-0"} 
+                    color={"red"} 
+                    setAdviceModalOpen={setAdviceModalOpen}
+                />
             </div>
             <div className='flex justify-center'>
                 <button

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { Dispatch, FC, SetStateAction } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 
@@ -7,11 +7,10 @@ interface AdviceCardProps {
     stars: number
     position: string
     color: string
+    setAdviceModalOpen: Dispatch<SetStateAction<string>>
 }
-
-//test 3
   
-export const AdviceCard: FC<AdviceCardProps> = ({ title, stars, position, color }) => {
+export const AdviceCard: FC<AdviceCardProps> = ({ title, stars, position, color, setAdviceModalOpen }) => {
     return (
         <div className={`border-r-2 border-b-2 w-40 h-40 lg:w-48 lg:h-48 absolute ${position} flex flex-col items-center justify-center`}>
             <div className={`bg-${color}-100 flex flex-col items-center justify-center py-2 px-4 rounded`}>
@@ -27,7 +26,11 @@ export const AdviceCard: FC<AdviceCardProps> = ({ title, stars, position, color 
                         )
                     })}
                 </div>
-                <button className={`border-2 border-${color}-400 py-2 px-4 bg-${color}-300 rounded mb-2 hover:bg-${color}-400`}>See advice</button>
+                <button
+                    className={`py-2 px-4 bg-${color}-300 rounded mb-2 hover:bg-${color}-400`}
+                    onClick={() => setAdviceModalOpen(title)}>
+                    See advice
+                </button>
             </div>
         </div>
     )

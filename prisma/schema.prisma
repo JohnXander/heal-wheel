@@ -16,3 +16,9 @@ model User {
   social Int
   work   Int
 }
+
+model Advice {
+  id     String @id @default(cuid())
+  name   String
+  advice String
+}

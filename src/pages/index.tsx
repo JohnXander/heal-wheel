@@ -6,7 +6,7 @@ import { Wheel } from '../components/Wheel';
 import { Advice } from '../components/Advice';
 
 export default function IndexPage() {
-  const userQuery = trpc.getUser.useQuery("clbmnqiej00007kjcvnrladne");
+  const userQuery = trpc.getUser.useQuery("clbqhzgxv00007ktcs35iodt2");
   const foundUser = userQuery.data?.foundUser;
   const [user, setUser] = useState<User>(foundUser as User);
   const [page, setPage] = useState<string>("wheel");

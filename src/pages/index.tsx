@@ -7,7 +7,10 @@ import { Advice } from '../components/Advice';
 
 export default function IndexPage() {
   const userQuery = trpc.getUser.useQuery("clbqhzgxv00007ktcs35iodt2");
+  const adviceQuery = trpc.getAdvice.useQuery();
   const foundUser = userQuery.data?.foundUser;
+  const foundAdvice = adviceQuery.data?.foundAdvice;
+
   const [user, setUser] = useState<User>(foundUser as User);
   const [page, setPage] = useState<string>("wheel");
   const [savedStats, setSavedStats] = useState<boolean>(true);
@@ -67,7 +70,7 @@ export default function IndexPage() {
         }
 
         {page === "advice" &&
-          <Advice user={user} />
+          <Advice user={user} foundAdvice={foundAdvice} />
         }
         
       </main>

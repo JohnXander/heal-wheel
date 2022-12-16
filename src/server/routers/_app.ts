@@ -1,3 +1,4 @@
+import { Query } from '@tanstack/react-query';
 import { z } from 'zod';
 import { procedure, router } from '../trpc';
 import { prisma } from '../utils/prisma';
@@ -43,6 +44,12 @@ export const appRouter = router({
       });
       return { updatedUser }
     }),
+  
+  getAdvice: procedure
+    .query(async () => {
+      const foundAdvice = await prisma.advice.findMany();
+      return { foundAdvice };
+    })
 });
 
 export type AppRouter = typeof appRouter;

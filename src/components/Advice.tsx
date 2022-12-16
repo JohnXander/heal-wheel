@@ -11,48 +11,75 @@ interface AdviceProps {
         social: number;
         work: number;
     }
+    foundAdvice: any;
 }
-
-// deployment test
   
-export const Advice: FC<AdviceProps> = ({ user }) => {
+export const Advice: FC<AdviceProps> = ({ user, foundAdvice }) => {
     const { mind, body, social, work } = user;
     const [adviceModalOpen, setAdviceModalOpen] = useState("");
 
     return (
         <div>
             <div className='w-80 h-80 lg:w-96 lg:h-96 flex justify-center items-center relative rounded border-2'>
-                {adviceModalOpen === "Mind" && <AdviceModal setAdviceModalOpen={setAdviceModalOpen} title={"Mind"} />}
-                {adviceModalOpen === "Body" && <AdviceModal setAdviceModalOpen={setAdviceModalOpen} title={"Body"} />}
-                {adviceModalOpen === "Social" && <AdviceModal setAdviceModalOpen={setAdviceModalOpen} title={"Social"} />}
-                {adviceModalOpen === "Work" && <AdviceModal setAdviceModalOpen={setAdviceModalOpen} title={"Work"} />}
+                {adviceModalOpen === "mind" &&
+                    <AdviceModal
+                        setAdviceModalOpen={setAdviceModalOpen}
+                        title={"mind"}
+                        stars={mind}
+                        foundAdvice={foundAdvice}
+                    />
+                }
+                {adviceModalOpen === "body" && 
+                    <AdviceModal 
+                        setAdviceModalOpen={setAdviceModalOpen} 
+                        title={"body"}
+                        stars={body}
+                        foundAdvice={foundAdvice}
+                    />
+                }
+                {adviceModalOpen === "social" && 
+                    <AdviceModal 
+                        setAdviceModalOpen={setAdviceModalOpen} 
+                        title={"social"}
+                        stars={social}
+                        foundAdvice={foundAdvice}
+                    />
+                }
+                {adviceModalOpen === "work" && 
+                    <AdviceModal 
+                        setAdviceModalOpen={setAdviceModalOpen} 
+                        title={"work"}
+                        stars={work}
+                        foundAdvice={foundAdvice}
+                    />
+                }
 
                 <AdviceCard
-                    title={"Mind"}
+                    title={"mind"}
                     stars={mind}
                     position={"left-0 top-0"}
                     color={"blue"}
                     setAdviceModalOpen={setAdviceModalOpen}
                 />
                 <AdviceCard 
-                    title={"Body"} 
+                    title={"body"} 
                     stars={body} 
                     position={"right-0 top-0"} 
                     color={"green"}
                     setAdviceModalOpen={setAdviceModalOpen}
                 />
                 <AdviceCard 
-                    title={"Social"} 
+                    title={"social"} 
                     stars={social} 
                     position={"bottom-0 left-0"} 
-                    color={"yellow"} 
+                    color={"yellow"}
                     setAdviceModalOpen={setAdviceModalOpen}
                 />
                 <AdviceCard 
-                    title={"Work"} 
+                    title={"work"} 
                     stars={work} 
                     position={"bottom-0 right-0"} 
-                    color={"red"} 
+                    color={"red"}
                     setAdviceModalOpen={setAdviceModalOpen}
                 />
             </div>

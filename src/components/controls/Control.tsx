@@ -3,47 +3,40 @@ import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 import { Dispatch, FC, SetStateAction } from "react";
 import { User } from '@prisma/client';
 
-interface MindProps { 
-  setUser: Dispatch<SetStateAction<User>>
-  setSavedStats: Dispatch<SetStateAction<boolean>>
-  user: {
-    id: string;
-    name: string;
-    mind: number;
-    body: number;
-    social: number;
-    work: number;
-  }
+interface ControlProps { 
+    setUser: Dispatch<SetStateAction<User>>
+    setSavedStats: Dispatch<SetStateAction<boolean>>
+    title: string
+    category: number
+    position: string
 }
 
-export const MindControl: FC<MindProps> = ({ user, setUser, setSavedStats }) => {
+export const Control: FC<ControlProps> = ({ title, category, position, setUser, setSavedStats }) => {
   const handleIncrement = () => {
-    const { mind } = user;
-    if (mind < 5) {
-      const newMind = mind + 1;
+    if (category < 5) {
+      const newMind = category + 1;
       setUser(prevState => ({
         ...prevState,
-        mind: newMind,
+        [title]: newMind,
       }));
       setSavedStats(false)
     }
   }
 
   const handleDecrement = () => {
-    const { mind } = user;
-    if (mind > 0) {
-      const newMind = mind - 1;
+    if (category > 0) {
+      const newMind = category - 1;
       setUser(prevState => ({
         ...prevState,
-        mind: newMind,
+        [title]: newMind,
       }));
       setSavedStats(false)
     }
   }
 
   return (
-      <div className='absolute top-0 left-0 text-white z-10 p-2'>
-          <h1 className='select-none'>Mind</h1>
+      <div className={`absolute ${position} text-white z-10 p-2`}>
+          <h1 className='select-none capitalize'>{title}</h1>
           <div className='flex gap-x-2'>
             <FontAwesomeIcon
               className='cursor-pointer text-green-400'

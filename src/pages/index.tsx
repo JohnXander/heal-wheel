@@ -69,9 +69,7 @@ export default function IndexPage() {
           />
         }
 
-        {page === "advice" &&
-          <Advice user={user} foundAdvice={foundAdvice} />
-        }
+        {page === "advice" && <Advice user={user} foundAdvice={foundAdvice} />}
         
       </main>
 

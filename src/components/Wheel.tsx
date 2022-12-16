@@ -1,9 +1,6 @@
 import Layer from './layers/Layer';
 import CentrePoint from '../components/layers/CentrePoint';
-import { MindControl } from '../components/controls/MindControl';
-import { BodyControl } from '../components/controls/BodyControl';
-import { SocialControl } from '../components/controls/SocialControl';
-import { WorkControl } from '../components/controls/WorkControl';
+import { Control } from './controls/Control';
 import { Dispatch, FC, SetStateAction } from "react";
 import { User } from '@prisma/client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -42,6 +39,7 @@ export const Wheel: FC<WheelProps> = ({
   const layerContainer = 'bg-blue-100 w-full h-full rounded-full relative overflow-hidden'
   const primaryColors = ["#A4CAFE", "#EBF5FF", "#84E1BC", "#F3FAF7", "#FACA15", "#FDFDEA", "#F8B4B4", "#FDF2F2"]
   const secondaryColors = ["#76A9FA", "#E1EFFE", "#31C48D", "#DEF7EC", "#E3A008", "#FDF6B2", "#F98080", "#FDE8E8"]
+  const { mind, body, social, work } = user;
 
   return (
     <div>
@@ -49,10 +47,34 @@ export const Wheel: FC<WheelProps> = ({
 
         {saveModalOpen && <SaveModal setSaveModalOpen={setSaveModalOpen} handleNavigate={handleNavigate} />}
 
-        <MindControl user={user} setUser={setUser} setSavedStats={setSavedStats} />
-        <BodyControl user={user} setUser={setUser} setSavedStats={setSavedStats} />
-        <SocialControl user={user} setUser={setUser} setSavedStats={setSavedStats} />
-        <WorkControl user={user} setUser={setUser} setSavedStats={setSavedStats} />
+        <Control 
+          title={"mind"} 
+          category={mind} 
+          position={"top-0 left-0"} 
+          setUser={setUser} 
+          setSavedStats={setSavedStats} 
+        />
+        <Control 
+          title={"body"} 
+          category={body} 
+          position={"top-0 right-0"} 
+          setUser={setUser} 
+          setSavedStats={setSavedStats} 
+        />
+        <Control 
+          title={"social"} 
+          category={social} 
+          position={"bottom-0 left-0"} 
+          setUser={setUser} 
+          setSavedStats={setSavedStats} 
+        />
+        <Control 
+          title={"work"} 
+          category={work} 
+          position={"bottom-0 right-0 "} 
+          setUser={setUser} 
+          setSavedStats={setSavedStats} 
+        />
       
         <Layer
           layerContainer={layerContainer}

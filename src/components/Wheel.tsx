@@ -1,8 +1,4 @@
-import FirstLayer from '../components/layers/FirstLayer';
-import SecondLayer from '../components/layers/SecondLayer';
-import ThirdLayer from '../components/layers/ThirdLayer';
-import FourthLayer from '../components/layers/FourthLayer';
-import FifthLayer from '../components/layers/FifthLayer';
+import Layer from './layers/Layer';
 import CentrePoint from '../components/layers/CentrePoint';
 import { MindControl } from '../components/controls/MindControl';
 import { BodyControl } from '../components/controls/BodyControl';
@@ -13,7 +9,6 @@ import { User } from '@prisma/client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { SaveModal } from './modals/SaveModal';
-import PrimaryLayer from './layers/PrimaryLayer';
 
 interface WheelProps { 
   user: {
@@ -45,7 +40,8 @@ export const Wheel: FC<WheelProps> = ({
 }) => {
   
   const layerContainer = 'bg-blue-100 w-full h-full rounded-full relative overflow-hidden'
-  const primaryColors = ["#A4CAFE", "#EBF5FF", "#84E1BC", "#F3FAF7", "#FACA15", "#FDFDEA", "#F8B4B4", "#FDF2F2" ]
+  const primaryColors = ["#A4CAFE", "#EBF5FF", "#84E1BC", "#F3FAF7", "#FACA15", "#FDFDEA", "#F8B4B4", "#FDF2F2"]
+  const secondaryColors = ["#76A9FA", "#E1EFFE", "#31C48D", "#DEF7EC", "#E3A008", "#FDF6B2", "#F98080", "#FDE8E8"]
 
   return (
     <div>
@@ -58,32 +54,46 @@ export const Wheel: FC<WheelProps> = ({
         <SocialControl user={user} setUser={setUser} setSavedStats={setSavedStats} />
         <WorkControl user={user} setUser={setUser} setSavedStats={setSavedStats} />
       
-        <PrimaryLayer
+        <Layer
           layerContainer={layerContainer}
           user={user}
-          primaryColors={primaryColors}
+          colors={primaryColors}
           containerSize={"w-80 h-80 lg:w-96 lg:h-96"}
           segmentSize={"w-40 h-40 lg:w-48 lg:h-48"}
           level={4}
         />
 
-        <SecondLayer layerContainer={layerContainer} user={user} />
-
-        <PrimaryLayer
+        <Layer
           layerContainer={layerContainer}
           user={user}
-          primaryColors={primaryColors}
+          colors={secondaryColors}
+          containerSize={"w-64 h-64 lg:w-80 lg:h-80"}
+          segmentSize={"w-32 h-32 lg:w-40 lg:h-40"}
+          level={3}
+        />
+
+        <Layer
+          layerContainer={layerContainer}
+          user={user}
+          colors={primaryColors}
           containerSize={"w-48 h-48 lg:w-64 lg:h-64"}
           segmentSize={"w-24 h-24 lg:w-32 lg:h-32"}
           level={2}
         />
 
-        <FourthLayer layerContainer={layerContainer} user={user} />
-
-        <PrimaryLayer
+        <Layer
           layerContainer={layerContainer}
           user={user}
-          primaryColors={primaryColors}
+          colors={secondaryColors}
+          containerSize={"w-32 h-32 lg:w-48 lg:h-48"}
+          segmentSize={"w-16 h-16 lg:w-24 lg:h-24"}
+          level={1}
+        />
+
+        <Layer
+          layerContainer={layerContainer}
+          user={user}
+          colors={primaryColors}
           containerSize={"w-16 h-16 lg:w-32 lg:h-32"}
           segmentSize={"w-8 h-8 lg:w-16 lg:h-16"}
           level={0}

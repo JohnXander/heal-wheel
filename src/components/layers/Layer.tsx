@@ -8,32 +8,32 @@ interface layerProps {
       social: number;
       work: number;
     }
-  primaryColors: string[]
+  colors: string[]
   containerSize: string
   segmentSize: string
   level: number
 }
 
-export default function PrimaryLayer({ layerContainer, user, primaryColors, containerSize, segmentSize, level }: layerProps) {
+export default function Layer({ layerContainer, user, colors, containerSize, segmentSize, level }: layerProps) {
 
   return (
       <div className={`absolute ${containerSize}`}>
           <div className={layerContainer}>
             <div
               className={`${segmentSize} absolute`}
-              style={user?.mind > level ? { backgroundColor: primaryColors[0] } : { backgroundColor: primaryColors[1] }}>
+              style={user?.mind > level ? { backgroundColor: colors[0] } : { backgroundColor: colors[1] }}>
             </div>
             <div
               className={`${segmentSize} absolute right-0`}
-              style={user?.body > level ? { backgroundColor: primaryColors[2] } : { backgroundColor: primaryColors[3] }}>
+              style={user?.body > level ? { backgroundColor: colors[2] } : { backgroundColor: colors[3] }}>
             </div>
             <div
               className={`${segmentSize} absolute bottom-0`}
-              style={user?.social > level ? { backgroundColor: primaryColors[4] } : { backgroundColor: primaryColors[5] }}>
+              style={user?.social > level ? { backgroundColor: colors[4] } : { backgroundColor: colors[5] }}>
             </div>
             <div
               className={`${segmentSize} absolute bottom-0 right-0`}
-              style={user?.work > level ? { backgroundColor: primaryColors[6] } : { backgroundColor: primaryColors[7] }}>
+              style={user?.work > level ? { backgroundColor: colors[6] } : { backgroundColor: colors[7] }}>
             </div>
           </div>
       </div>

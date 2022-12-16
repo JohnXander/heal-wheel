@@ -12,6 +12,8 @@ interface AdviceProps {
         work: number;
     }
 }
+
+// deployment test
   
 export const Advice: FC<AdviceProps> = ({ user }) => {
     const { mind, body, social, work } = user;

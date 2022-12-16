@@ -18,6 +18,10 @@ export const Advice: FC<AdviceProps> = ({ user, foundAdvice }) => {
     const { mind, body, social, work } = user;
     const [adviceModalOpen, setAdviceModalOpen] = useState("");
 
+    if (!user) {
+        return <div>Loading...</div>
+    }
+
     return (
         <div>
             <div className='w-80 h-80 lg:w-96 lg:h-96 flex justify-center items-center relative rounded border-2'>

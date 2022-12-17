@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import { AdCard } from "./cards/AdCard";
+import { MindCard } from "./cards/MindCard";
 import { AdviceMod } from "./modals/AdviceMod";
 
 interface AdviceProps { 
@@ -53,13 +54,20 @@ export const Advice: FC<AdviceProps> = ({ user, foundAdvice }) => {
                     />
                 }
 
-                <AdCard
+                <MindCard
+                    title={"mind"}
+                    stars={user?.mind}
+                    position={"left-0 top-0"}
+                    setAdviceModalOpen={setAdviceModalOpen}
+                />
+
+                {/* <AdCard
                     title={"mind"}
                     stars={user?.mind}
                     position={"left-0 top-0"}
                     color={"blue"}
                     setAdviceModalOpen={setAdviceModalOpen}
-                />
+                /> */}
                 <AdCard 
                     title={"body"} 
                     stars={user?.body} 

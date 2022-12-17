@@ -11,13 +11,10 @@ interface AdviceCardProps {
 }
   
 export const AdCard: FC<AdviceCardProps> = ({ title, stars, position, color, setAdviceModalOpen }) => {
-    const cardBg = `bg-${color}-100`
-    const btnBg = `bg-${color}-300`
-    const hoverBg = `hover:bg-${color}-400`
 
     return (
         <div className={`border-r-2 border-b-2 w-40 h-40 lg:w-48 lg:h-48 absolute ${position} flex flex-col items-center justify-center`}>
-            <div className={`${cardBg} flex flex-col items-center justify-center py-2 px-4 rounded`}>
+            <div className={`bg-${color}-100 flex flex-col items-center justify-center py-2 px-4 rounded`}>
                 <h1 className="text-2xl capitalize">{title}</h1>
                 <div className="flex gap-x-0.5 pt-1 pb-3">
                     {Array(stars).fill("_").map((_, idx) => {
@@ -31,7 +28,7 @@ export const AdCard: FC<AdviceCardProps> = ({ title, stars, position, color, set
                     })}
                 </div>
                 <button
-                    className={`py-2 px-4 ${btnBg} rounded mb-2 ${hoverBg}`}
+                    className={`py-2 px-4 bg-${color}-300 rounded mb-2 hover:bg-${color}-400`}
                     onClick={() => setAdviceModalOpen(title)}>
                     See advice
                 </button>

@@ -13,7 +13,7 @@ export const AdviceMod: FC<AdviceProps> = ({ setAdviceModalOpen, title, stars, f
     const advice = foundAdvice.find((ad: any) => ad.name === `${title}${stars}`)
 
     return (
-        <div className="absolute bg-gray-800 text-white border-2 rounded z-10 p-3 w-72">
+        <div className="absolute bg-gray-800 text-white border-2 rounded z-10 p-3 w-72 h-72 overflow-y-scroll">
             <div className='flex justify-end'>
                 <FontAwesomeIcon
                     onClick={() => setAdviceModalOpen("")}
@@ -22,9 +22,9 @@ export const AdviceMod: FC<AdviceProps> = ({ setAdviceModalOpen, title, stars, f
                 />
             </div>
             <p className="text-2xl px-4 text-center capitalize">{title}</p>
-            <div className="flex justify-around mb-2 mt-3">
-                <p>{advice.advice}</p>
-            </div>
+            <p className='p-2 pb-4'>
+                {advice.advice}
+            </p>
         </div>
     )
 }

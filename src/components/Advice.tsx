@@ -13,8 +13,6 @@ interface AdviceProps {
     }
     foundAdvice: any;
 }
-
-// test
   
 export const Advice: FC<AdviceProps> = ({ user, foundAdvice }) => {
     const [adviceModalOpen, setAdviceModalOpen] = useState("");

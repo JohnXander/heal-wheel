@@ -76,6 +76,28 @@ export const Advice: FC<AdviceProps> = ({ user, foundAdvice }) => {
                     setAdviceModalOpen={setAdviceModalOpen}
                 />
 
+                <AdviceCard
+                    title={"social"}
+                    stars={user?.social}
+                    position={"right-0 top-0"}
+                    cardBg={"bg-yellow-100"}
+                    text={"text-yellow-500"}
+                    btnBg={"bg-yellow-300"}
+                    hoverBg={"hover:bg-yellow-500"}
+                    setAdviceModalOpen={setAdviceModalOpen}
+                />
+
+                <AdviceCard
+                    title={"work"}
+                    stars={user?.work}
+                    position={"right-0 top-0"}
+                    cardBg={"bg-red-100"}
+                    text={"text-red-500"}
+                    btnBg={"bg-red-300"}
+                    hoverBg={"hover:bg-red-500"}
+                    setAdviceModalOpen={setAdviceModalOpen}
+                />
+
                 {/* <AdCard
                     title={"mind"}
                     stars={user?.mind}
@@ -90,7 +112,7 @@ export const Advice: FC<AdviceProps> = ({ user, foundAdvice }) => {
                     color={"green"}
                     setAdviceModalOpen={setAdviceModalOpen}
                 /> */}
-                <AdCard 
+                {/* <AdCard 
                     title={"social"} 
                     stars={user?.social} 
                     position={"bottom-0 left-0"} 
@@ -103,7 +125,7 @@ export const Advice: FC<AdviceProps> = ({ user, foundAdvice }) => {
                     position={"bottom-0 right-0"} 
                     color={"red"}
                     setAdviceModalOpen={setAdviceModalOpen}
-                />
+                /> */}
 
             </div>
 

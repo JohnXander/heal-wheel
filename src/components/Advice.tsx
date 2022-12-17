@@ -1,5 +1,4 @@
 import { FC, useState } from "react";
-import { AdCard } from "./cards/AdCard";
 import { AdviceCard } from "./cards/AdviceCard";
 import { AdviceMod } from "./modals/AdviceMod";
 
@@ -14,6 +13,8 @@ interface AdviceProps {
     }
     foundAdvice: any;
 }
+
+// test
   
 export const Advice: FC<AdviceProps> = ({ user, foundAdvice }) => {
     const [adviceModalOpen, setAdviceModalOpen] = useState("");
@@ -97,35 +98,6 @@ export const Advice: FC<AdviceProps> = ({ user, foundAdvice }) => {
                     hoverBg={"hover:bg-red-500"}
                     setAdviceModalOpen={setAdviceModalOpen}
                 />
-
-                {/* <AdCard
-                    title={"mind"}
-                    stars={user?.mind}
-                    position={"left-0 top-0"}
-                    color={"blue"}
-                    setAdviceModalOpen={setAdviceModalOpen}
-                /> */}
-                {/* <AdCard 
-                    title={"body"} 
-                    stars={user?.body} 
-                    position={"right-0 top-0"} 
-                    color={"green"}
-                    setAdviceModalOpen={setAdviceModalOpen}
-                /> */}
-                {/* <AdCard 
-                    title={"social"} 
-                    stars={user?.social} 
-                    position={"bottom-0 left-0"} 
-                    color={"yellow"}
-                    setAdviceModalOpen={setAdviceModalOpen}
-                />
-                <AdCard 
-                    title={"work"} 
-                    stars={user?.work} 
-                    position={"bottom-0 right-0"} 
-                    color={"red"}
-                    setAdviceModalOpen={setAdviceModalOpen}
-                /> */}
 
             </div>
 

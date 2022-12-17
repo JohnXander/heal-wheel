@@ -79,7 +79,7 @@ export const Advice: FC<AdviceProps> = ({ user, foundAdvice }) => {
                 <AdviceCard
                     title={"social"}
                     stars={user?.social}
-                    position={"right-0 top-0"}
+                    position={"bottom-0 left-0"}
                     cardBg={"bg-yellow-100"}
                     text={"text-yellow-500"}
                     btnBg={"bg-yellow-300"}
@@ -90,7 +90,7 @@ export const Advice: FC<AdviceProps> = ({ user, foundAdvice }) => {
                 <AdviceCard
                     title={"work"}
                     stars={user?.work}
-                    position={"right-0 top-0"}
+                    position={"bottom-0 right-0"}
                     cardBg={"bg-red-100"}
                     text={"text-red-500"}
                     btnBg={"bg-red-300"}

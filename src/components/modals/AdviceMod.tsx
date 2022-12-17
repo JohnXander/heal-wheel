@@ -9,7 +9,7 @@ interface AdviceProps {
     foundAdvice: any
 }
 
-export const AdviceModal: FC<AdviceProps> = ({ setAdviceModalOpen, title, stars, foundAdvice }) => {
+export const AdviceMod: FC<AdviceProps> = ({ setAdviceModalOpen, title, stars, foundAdvice }) => {
     const advice = foundAdvice.find((ad: any) => ad.name === `${title}${stars}`)
 
     return (

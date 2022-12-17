@@ -40,10 +40,6 @@ export const Wheel: FC<WheelProps> = ({
   const primaryColors = ["#A4CAFE", "#EBF5FF", "#84E1BC", "#F3FAF7", "#FACA15", "#FDFDEA", "#F8B4B4", "#FDF2F2"]
   const secondaryColors = ["#76A9FA", "#E1EFFE", "#31C48D", "#DEF7EC", "#E3A008", "#FDF6B2", "#F98080", "#FDE8E8"]
 
-  if (!user) {
-    return <div>Loading...</div>
-  }
-
   return (
     <div>
       <div className='w-80 h-80 lg:w-96 lg:h-96 flex justify-center items-center relative'>

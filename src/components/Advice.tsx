@@ -15,12 +15,7 @@ interface AdviceProps {
 }
   
 export const Advice: FC<AdviceProps> = ({ user, foundAdvice }) => {
-    const { mind, body, social, work } = user;
     const [adviceModalOpen, setAdviceModalOpen] = useState("");
-
-    if (!user) {
-        return <div>Loading...</div>
-    }
 
     return (
         <div>
@@ -29,7 +24,7 @@ export const Advice: FC<AdviceProps> = ({ user, foundAdvice }) => {
                     <AdviceModal
                         setAdviceModalOpen={setAdviceModalOpen}
                         title={"mind"}
-                        stars={mind}
+                        stars={user?.mind}
                         foundAdvice={foundAdvice}
                     />
                 }
@@ -37,7 +32,7 @@ export const Advice: FC<AdviceProps> = ({ user, foundAdvice }) => {
                     <AdviceModal 
                         setAdviceModalOpen={setAdviceModalOpen} 
                         title={"body"}
-                        stars={body}
+                        stars={user?.body}
                         foundAdvice={foundAdvice}
                     />
                 }
@@ -45,7 +40,7 @@ export const Advice: FC<AdviceProps> = ({ user, foundAdvice }) => {
                     <AdviceModal 
                         setAdviceModalOpen={setAdviceModalOpen} 
                         title={"social"}
-                        stars={social}
+                        stars={user?.social}
                         foundAdvice={foundAdvice}
                     />
                 }
@@ -53,35 +48,35 @@ export const Advice: FC<AdviceProps> = ({ user, foundAdvice }) => {
                     <AdviceModal 
                         setAdviceModalOpen={setAdviceModalOpen} 
                         title={"work"}
-                        stars={work}
+                        stars={user?.work}
                         foundAdvice={foundAdvice}
                     />
                 }
 
                 <AdviceCard
                     title={"mind"}
-                    stars={mind}
+                    stars={user?.mind}
                     position={"left-0 top-0"}
                     color={"blue"}
                     setAdviceModalOpen={setAdviceModalOpen}
                 />
                 <AdviceCard 
                     title={"body"} 
-                    stars={body} 
+                    stars={user?.body} 
                     position={"right-0 top-0"} 
                     color={"green"}
                     setAdviceModalOpen={setAdviceModalOpen}
                 />
                 <AdviceCard 
                     title={"social"} 
-                    stars={social} 
+                    stars={user?.social} 
                     position={"bottom-0 left-0"} 
                     color={"yellow"}
                     setAdviceModalOpen={setAdviceModalOpen}
                 />
                 <AdviceCard 
                     title={"work"} 
-                    stars={work} 
+                    stars={user?.work} 
                     position={"bottom-0 right-0"} 
                     color={"red"}
                     setAdviceModalOpen={setAdviceModalOpen}

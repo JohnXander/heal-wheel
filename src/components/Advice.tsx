@@ -58,6 +58,7 @@ export const Advice: FC<AdviceProps> = ({ user, foundAdvice }) => {
                     title={"mind"}
                     stars={user?.mind}
                     position={"left-0 top-0"}
+                    color={"blue"}
                     setAdviceModalOpen={setAdviceModalOpen}
                 />
 

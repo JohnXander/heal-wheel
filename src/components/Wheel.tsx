@@ -39,7 +39,6 @@ export const Wheel: FC<WheelProps> = ({
   const layerContainer = 'bg-blue-100 w-full h-full rounded-full relative overflow-hidden'
   const primaryColors = ["#A4CAFE", "#EBF5FF", "#84E1BC", "#F3FAF7", "#FACA15", "#FDFDEA", "#F8B4B4", "#FDF2F2"]
   const secondaryColors = ["#76A9FA", "#E1EFFE", "#31C48D", "#DEF7EC", "#E3A008", "#FDF6B2", "#F98080", "#FDE8E8"]
-  const { mind, body, social, work } = user;
 
   if (!user) {
     return <div>Loading...</div>
@@ -53,28 +52,28 @@ export const Wheel: FC<WheelProps> = ({
 
         <Control 
           title={"mind"} 
-          category={mind} 
+          category={user?.mind} 
           position={"top-0 left-0"} 
           setUser={setUser} 
           setSavedStats={setSavedStats} 
         />
         <Control 
           title={"body"} 
-          category={body} 
+          category={user?.body} 
           position={"top-0 right-0"} 
           setUser={setUser} 
           setSavedStats={setSavedStats} 
         />
         <Control 
           title={"social"} 
-          category={social} 
+          category={user?.social} 
           position={"bottom-0 left-0"} 
           setUser={setUser} 
           setSavedStats={setSavedStats} 
         />
         <Control 
           title={"work"} 
-          category={work} 
+          category={user?.work} 
           position={"bottom-0 right-0 "} 
           setUser={setUser} 
           setSavedStats={setSavedStats} 

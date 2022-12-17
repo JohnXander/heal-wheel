@@ -2,7 +2,7 @@ import { Dispatch, FC, SetStateAction } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 
-interface MindCardProps { 
+interface AdviceCardProps { 
     title: string
     stars: number
     position: string
@@ -13,7 +13,7 @@ interface MindCardProps {
     setAdviceModalOpen: Dispatch<SetStateAction<string>>
 }
   
-export const MindCard: FC<MindCardProps> = ({ title, stars, cardBg, text, btnBg, hoverBg, position, setAdviceModalOpen }) => {
+export const AdviceCard: FC<AdviceCardProps> = ({ title, stars, cardBg, text, btnBg, hoverBg, position, setAdviceModalOpen }) => {
 
     return (
         <div className={`border-r-2 border-b-2 w-40 h-40 lg:w-48 lg:h-48 absolute ${position} flex flex-col items-center justify-center`}>

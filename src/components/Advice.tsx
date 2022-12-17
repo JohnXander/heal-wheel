@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { AdCard } from "./cards/AdCard";
-import { MindCard } from "./cards/MindCard";
+import { AdviceCard } from "./cards/AdviceCard";
 import { AdviceMod } from "./modals/AdviceMod";
 
 interface AdviceProps { 
@@ -54,7 +54,7 @@ export const Advice: FC<AdviceProps> = ({ user, foundAdvice }) => {
                     />
                 }
 
-                <MindCard
+                <AdviceCard
                     title={"mind"}
                     stars={user?.mind}
                     position={"left-0 top-0"}
@@ -65,6 +65,17 @@ export const Advice: FC<AdviceProps> = ({ user, foundAdvice }) => {
                     setAdviceModalOpen={setAdviceModalOpen}
                 />
 
+                <AdviceCard
+                    title={"body"}
+                    stars={user?.body}
+                    position={"right-0 top-0"}
+                    cardBg={"bg-green-100"}
+                    text={"text-green-500"}
+                    btnBg={"bg-green-300"}
+                    hoverBg={"hover:bg-green-500"}
+                    setAdviceModalOpen={setAdviceModalOpen}
+                />
+
                 {/* <AdCard
                     title={"mind"}
                     stars={user?.mind}
@@ -72,13 +83,13 @@ export const Advice: FC<AdviceProps> = ({ user, foundAdvice }) => {
                     color={"blue"}
                     setAdviceModalOpen={setAdviceModalOpen}
                 /> */}
-                <AdCard 
+                {/* <AdCard 
                     title={"body"} 
                     stars={user?.body} 
                     position={"right-0 top-0"} 
                     color={"green"}
                     setAdviceModalOpen={setAdviceModalOpen}
-                />
+                /> */}
                 <AdCard 
                     title={"social"} 
                     stars={user?.social} 

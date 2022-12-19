@@ -8,10 +8,7 @@ const authOptions: NextAuthOptions = {
     providers: [
         CredentialsProvider({
             type: "credentials",
-            credentials: {
-                email: { label: "Email", type: "email", placeholder: "me@email.com" },
-                password: { label: "Password", type: "password"}  
-            },
+            credentials: {},
             authorize(credentials, req) {
                 const { email, password } = credentials as {
                     email: string;
@@ -19,13 +16,16 @@ const authOptions: NextAuthOptions = {
                 };
 
                 if (email !== "john@gmail.com" || password !== "1234") {
-                    return null;
+                    throw new Error("invalid credentials")
                 }
 
                 return { id: "1234", name: "John", email: "john@gmail.com" };
             }
         })
-    ]
+    ],
+    pages: {
+        signIn: "/auth/signin",
+    }
 }
 
 export default NextAuth(authOptions);

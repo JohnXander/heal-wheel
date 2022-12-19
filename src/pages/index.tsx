@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Head from 'next/head';
 import { Wheel } from '../components/Wheel';
 import { Advice } from '../components/Advice';
+import { signIn } from "next-auth/react";
 
 export default function IndexPage() {
   const userQuery = trpc.getUser.useQuery("clbqhzgxv00007ktcs35iodt2");
@@ -44,6 +45,12 @@ export default function IndexPage() {
       </Head>
 
       <main className='bg-gray-800 w-screen h-screen flex flex-col justify-center items-center'>
+
+        <button
+          onClick={() => { signIn() }}
+          className='bg-white text-gray-800 py-2 px-6 rounded'>
+          Login
+        </button>
 
         {page === "wheel" && <button
           onClick={() => handleNavigate("advice")}

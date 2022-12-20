@@ -7,13 +7,13 @@ import { Advice } from '../components/Advice';
 import { Register } from '../components/Register';
 
 export default function IndexPage() {
-  const userQuery = trpc.getUser.useQuery("clbqhzgxv00007ktcs35iodt2");
+  const userQuery = trpc.getUser.useQuery("clbwmj8du00007kbwn23ysva9");
   const adviceQuery = trpc.getAdvice.useQuery();
   const foundUser = userQuery.data?.foundUser;
   const foundAdvice = adviceQuery.data?.foundAdvice;
 
   const [user, setUser] = useState<User>(foundUser as User);
-  const [page, setPage] = useState<string>("register");
+  const [page, setPage] = useState<string>("wheel");
   const [savedStats, setSavedStats] = useState<boolean>(true);
   const [saveModalOpen, setSaveModalOpen] = useState<boolean>(false);
 
@@ -64,7 +64,7 @@ export default function IndexPage() {
         </div>}
 
         {page === "register" &&
-          <Register />
+          <Register setPage={setPage} />
         }
 
         {page === "wheel" &&

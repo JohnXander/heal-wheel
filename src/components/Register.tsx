@@ -1,9 +1,13 @@
 import { FormEventHandler, useState } from "react"
 import { trpc } from '../utils/trpc';
+import { Dispatch, FC, SetStateAction } from "react";
 
-export const Register = () => {
+interface RegisterProps {
+    setPage: Dispatch<SetStateAction<string>>
+}
+
+export const Register: FC<RegisterProps> = ({ setPage }) => {
     const [userInfo, setUserInfo] = useState({ username: "", password: "" });
-
     const userMutation = trpc.createUser.useMutation();
     
     const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
@@ -16,6 +20,7 @@ export const Register = () => {
             social: 0, 
             work: 0
         })
+        setPage("wheel")
     }
 
     return (

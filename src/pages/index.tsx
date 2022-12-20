@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Head from 'next/head';
 import { Wheel } from '../components/Wheel';
 import { Advice } from '../components/Advice';
-import { signIn } from "next-auth/react";
+import { Register } from '../components/Register';
 
 export default function IndexPage() {
   const userQuery = trpc.getUser.useQuery("clbqhzgxv00007ktcs35iodt2");
@@ -13,7 +13,7 @@ export default function IndexPage() {
   const foundAdvice = adviceQuery.data?.foundAdvice;
 
   const [user, setUser] = useState<User>(foundUser as User);
-  const [page, setPage] = useState<string>("wheel");
+  const [page, setPage] = useState<string>("register");
   const [savedStats, setSavedStats] = useState<boolean>(true);
   const [saveModalOpen, setSaveModalOpen] = useState<boolean>(false);
 
@@ -46,12 +46,6 @@ export default function IndexPage() {
 
       <main className='bg-gray-800 w-screen h-screen flex flex-col justify-center items-center'>
 
-        <button
-          onClick={() => { signIn() }}
-          className='bg-white text-gray-800 py-2 px-6 rounded'>
-          Login
-        </button>
-
         {page === "wheel" && <button
           onClick={() => handleNavigate("advice")}
           className='border-2 border-blue-400 text-blue-400 rounded p-2 hover:text-white hover:border-blue-500 hover:bg-blue-500 my-6'>
@@ -62,6 +56,10 @@ export default function IndexPage() {
           className='border-2 border-blue-400 text-blue-400 rounded p-2 hover:text-white hover:border-blue-500 hover:bg-blue-500 my-6'>
           GO TO WHEEL
         </button>}
+
+        {page === "register" &&
+          <Register />
+        }
 
         {page === "wheel" &&
           <Wheel

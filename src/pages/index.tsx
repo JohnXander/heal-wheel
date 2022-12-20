@@ -67,7 +67,7 @@ export default function IndexPage() {
         </div>}
 
         {page === "register" && <Register setPage={setPage} />}
-        {page === "login" && <Login setLoggedInId={setLoggedInId} />}
+        {page === "login" && <Login setPage={setPage} setLoggedInId={setLoggedInId} />}
 
         {page === "wheel" &&
           <Wheel

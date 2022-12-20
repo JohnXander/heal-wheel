@@ -10,13 +10,13 @@ import { Login } from '../components/Login';
 export default function IndexPage() {
   const [loggedInId, setLoggedInId] = useState("");
 
-  const userQuery = trpc.getUser.useQuery("clbwmj8du00007kbwn23ysva9");
+  const userQuery = trpc.getUser.useQuery("John");
   const adviceQuery = trpc.getAdvice.useQuery();
   const foundUser = userQuery.data?.foundUser;
   const foundAdvice = adviceQuery.data?.foundAdvice;
 
   const [user, setUser] = useState<User>(foundUser as User);
-  const [page, setPage] = useState<string>("register");
+  const [page, setPage] = useState<string>("wheel");
   const [savedStats, setSavedStats] = useState<boolean>(true);
   const [saveModalOpen, setSaveModalOpen] = useState<boolean>(false);
 
@@ -53,10 +53,10 @@ export default function IndexPage() {
 
         {isNavbar && <div className='flex gap-12'>
           <button
-              onClick={() => handleNavigate("wheel")}
-              className='border-2 border-blue-500 text-blue-400 rounded p-2 hover:text-white hover:border-blue-500 hover:bg-blue-500 my-6'
-              style={page === "wheel" ? {backgroundColor: "#3b82f6", color: "white"} : {}}>
-              WHEEL
+            onClick={() => handleNavigate("wheel")}
+            className='border-2 border-blue-500 text-blue-400 rounded p-2 hover:text-white hover:border-blue-500 hover:bg-blue-500 my-6'
+            style={page === "wheel" ? {backgroundColor: "#3b82f6", color: "white"} : {}}>
+            WHEEL
           </button>
           <button
             onClick={() => handleNavigate("advice")}

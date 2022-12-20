@@ -24,7 +24,7 @@ export const appRouter = router({
     .input( z.string() )
     .query(async ({ input }) => {
       const foundUser = await prisma.user.findUnique({
-        where: { id: input }
+        where: { name: input }
       });
       return { foundUser }
     }),

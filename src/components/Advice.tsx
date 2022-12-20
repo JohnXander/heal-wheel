@@ -99,7 +99,7 @@ export const Advice: FC<AdviceProps> = ({ user, foundAdvice }) => {
 
             </div>
 
-            <div className='m-28'></div>
+            <div style={{ margin: "6.75rem" }}></div>
 
         </div>
     )

@@ -20,7 +20,7 @@ export const Register: FC<RegisterProps> = ({ setPage }) => {
             social: 0, 
             work: 0
         })
-        setPage("wheel")
+        setPage("login")
     }
 
     return (

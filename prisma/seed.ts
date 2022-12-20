@@ -4,11 +4,12 @@ const prisma = new PrismaClient()
 async function main() {
     await prisma.user.create({
         data: {
-            name: "John",
-            mind:   0,
-            body:   0,
-            social: 0,
-            work:   0,
+          name: "John",
+          password: "123",
+          mind:   0,
+          body:   0,
+          social: 0,
+          work:   0,
         }
     })
 

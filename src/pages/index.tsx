@@ -13,7 +13,7 @@ export default function IndexPage() {
   const foundAdvice = adviceQuery.data?.foundAdvice;
 
   const [user, setUser] = useState<User>(foundUser as User);
-  const [page, setPage] = useState<string>("wheel");
+  const [page, setPage] = useState<string>("register");
   const [savedStats, setSavedStats] = useState<boolean>(true);
   const [saveModalOpen, setSaveModalOpen] = useState<boolean>(false);
 

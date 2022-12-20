@@ -99,12 +99,7 @@ export const Advice: FC<AdviceProps> = ({ user, foundAdvice }) => {
 
             </div>
 
-            <div className='flex justify-center'>
-                <button
-                    className='border-2 border-gray-800 text-gray-400 rounded py-2 px-6 mt-6 mb-10 pointer-events-none select-none'>
-                    HEAL WHEEL (2022)
-                </button>
-            </div>
+            <div className='m-28'></div>
 
         </div>
     )

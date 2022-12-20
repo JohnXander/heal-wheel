@@ -17,6 +17,8 @@ export default function IndexPage() {
   const [savedStats, setSavedStats] = useState<boolean>(true);
   const [saveModalOpen, setSaveModalOpen] = useState<boolean>(false);
 
+  const isNavbar = page === "wheel" || page === "advice";
+
   const userMutation = trpc.updateUser.useMutation();
 
   const handleSave = () => {
@@ -46,16 +48,20 @@ export default function IndexPage() {
 
       <main className='bg-gray-800 w-screen h-screen flex flex-col justify-center items-center'>
 
-        {page === "wheel" && <button
-          onClick={() => handleNavigate("advice")}
-          className='border-2 border-blue-400 text-blue-400 rounded p-2 hover:text-white hover:border-blue-500 hover:bg-blue-500 my-6'>
-          GO TO ADVICE
-        </button>}
-        {page === "advice" && <button
-          onClick={() => handleNavigate("wheel")}
-          className='border-2 border-blue-400 text-blue-400 rounded p-2 hover:text-white hover:border-blue-500 hover:bg-blue-500 my-6'>
-          GO TO WHEEL
-        </button>}
+        {isNavbar && <div className='flex gap-12'>
+          <button
+              onClick={() => handleNavigate("wheel")}
+              className='border-2 border-blue-500 text-blue-400 rounded p-2 hover:text-white hover:border-blue-500 hover:bg-blue-500 my-6'
+              style={page === "wheel" ? {backgroundColor: "#3b82f6", color: "white"} : {}}>
+              WHEEL
+          </button>
+          <button
+            onClick={() => handleNavigate("advice")}
+            className='border-2 border-blue-500 text-blue-400 rounded p-2 hover:text-white hover:border-blue-500 hover:bg-blue-500 my-6'
+            style={page === "advice" ? {backgroundColor: "#3b82f6", color: "white"} : {}}>
+            ADVICE
+          </button>
+        </div>}
 
         {page === "register" &&
           <Register />

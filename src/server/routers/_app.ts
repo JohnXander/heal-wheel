@@ -7,6 +7,7 @@ export const appRouter = router({
   createUser: procedure
     .input(z.object({
       name: z.string(),
+      password: z.string(),
       mind: z.number(), 
       body: z.number(), 
       social: z.number(), 

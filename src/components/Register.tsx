@@ -1,13 +1,8 @@
 import { FormEventHandler, useState } from "react"
 import { trpc } from '../utils/trpc';
-import { Dispatch, FC, SetStateAction } from "react";
 import Router from "next/router";
 
-interface RegisterProps {
-    setPage: Dispatch<SetStateAction<string>>
-}
-
-export const Register: FC<RegisterProps> = ({ setPage }) => {
+export const Register = () => {
     const [userInfo, setUserInfo] = useState({ username: "", password: "" });
     const userMutation = trpc.createUser.useMutation();
     

@@ -7,7 +7,10 @@ const Login =() => {
     const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
         e.preventDefault()
         Router.push({
-            pathname: "/wheel"
+            pathname: "/main",
+            query: {
+                username: userInfo.username
+            }
         })
     }
 

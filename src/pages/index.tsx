@@ -5,18 +5,15 @@ import Head from 'next/head';
 import { Wheel } from '../components/Wheel';
 import { Advice } from '../components/Advice';
 import { Register } from '../components/Register';
-import { Login } from '../components/Login';
 
 export default function IndexPage() {
-  const [loggedInId, setLoggedInId] = useState("");
-
   const userQuery = trpc.getUser.useQuery("John");
   const adviceQuery = trpc.getAdvice.useQuery();
   const foundUser = userQuery.data?.foundUser;
   const foundAdvice = adviceQuery.data?.foundAdvice;
 
   const [user, setUser] = useState<User>(foundUser as User);
-  const [page, setPage] = useState<string>("wheel");
+  const [page, setPage] = useState<string>("register");
   const [savedStats, setSavedStats] = useState<boolean>(true);
   const [saveModalOpen, setSaveModalOpen] = useState<boolean>(false);
 
@@ -67,7 +64,6 @@ export default function IndexPage() {
         </div>}
 
         {page === "register" && <Register setPage={setPage} />}
-        {page === "login" && <Login setPage={setPage} setLoggedInId={setLoggedInId} />}
 
         {page === "wheel" &&
           <Wheel

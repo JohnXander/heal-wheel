@@ -1,6 +1,7 @@
 import { FormEventHandler, useState } from "react"
 import { trpc } from '../utils/trpc';
 import { Dispatch, FC, SetStateAction } from "react";
+import Router from "next/router";
 
 interface RegisterProps {
     setPage: Dispatch<SetStateAction<string>>
@@ -20,7 +21,7 @@ export const Register: FC<RegisterProps> = ({ setPage }) => {
             social: 0, 
             work: 0
         })
-        setPage("login")
+        Router.push("/login")
     }
 
     return (

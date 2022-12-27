@@ -130,7 +130,7 @@ export const Wheel: FC<WheelProps> = ({
             SAVE STATS
         </button>}
         {savedStats && <h1
-            className='border-2 border-gray-800 text-green-500 p-2 pointer-events-none mt-3.5'
+            className='border-2 border-gray-800 text-green-500 p-2 pointer-events-none mt-1'
             onClick={handleSave}>
             SAVED
             <FontAwesomeIcon

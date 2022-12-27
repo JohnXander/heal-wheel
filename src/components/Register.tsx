@@ -11,10 +11,10 @@ export const Register = () => {
         userMutation.mutate({
             name: userInfo.username,
             password: userInfo.password, 
-            mind: 0,
-            body: 0, 
-            social: 0, 
-            work: 0
+            mind: 1,
+            body: 1, 
+            social: 1, 
+            work: 1
         })
         Router.push("/login")
     }

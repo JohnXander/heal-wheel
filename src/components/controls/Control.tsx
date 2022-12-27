@@ -24,7 +24,7 @@ export const Control: FC<ControlProps> = ({ title, category, position, setUser, 
   }
 
   const handleDecrement = () => {
-    if (category > 0) {
+    if (category > 1) {
       const newMind = category - 1;
       setUser(prevState => ({
         ...prevState,

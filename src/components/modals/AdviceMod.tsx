@@ -22,17 +22,7 @@ export const AdviceMod: FC<AdviceProps> = ({ setAdviceModalOpen, title, stars, f
                 />
             </div>
             <p className="text-3xl px-4 text-center capitalize">{title}</p>
-            <p className='p-2 pb-4'>
-                {advice.advice} :
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Suscipit sunt doloribus maxime neque molestias voluptatum
-                dolorem deserunt, corrupti veniam ex fugiat dolorum cupiditate
-                repellat doloremque voluptatem debitis ea eius vero.
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Suscipit sunt doloribus maxime neque molestias voluptatum
-                dolorem deserunt, corrupti veniam ex fugiat dolorum cupiditate
-                repellat doloremque voluptatem debitis ea eius vero.
-            </p>
+            <p className='p-2 pb-4'>{advice.advice} <br/> (This information comes from the database)</p>
         </div>
     )
 }

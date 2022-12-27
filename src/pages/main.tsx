@@ -38,6 +38,8 @@ export default function Main() {
         setPage(page)
         }
     }
+
+    const reloadPage = () => router.reload()
   
     return (
         <div>
@@ -56,6 +58,7 @@ export default function Main() {
                     style={page === "wheel" ? {backgroundColor: "#3b82f6", color: "white"} : {}}>
                     WHEEL
                 </button>
+                <div className='bg-gray-800 w-2 h-10' onClick={reloadPage}></div>
                 <button
                     onClick={() => handleNavigate("advice")}
                     className='border-2 border-blue-500 text-blue-400 rounded p-2 hover:text-white hover:border-blue-500 hover:bg-blue-500 my-6'
